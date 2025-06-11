@@ -12,3 +12,36 @@ Protótipos e wireframes desenvolvidos no Figma;
 Documentações complementares que auxiliem na compreensão e evolução do projeto.
 
 Este repositório serve como base de colaboração entre desenvolvedores e designers, promovendo uma integração eficiente entre as áreas técnicas e de design.
+
+*Dicas ao trabalhar com Branch:
+
+Lembre-se de digitar, TODA VEZ que entrar no visual code:
+
+  git checkout nome-da-conta  (se aparecer a mensagem: Your branch is up to date with 'origin/main', vc está no MAIN e não no seu branch)
+
+  Para puxar do Main, digite:
+
+    git pull origin main
+
+Lembre-se de digitar git checkout nome-da-conta, TODA VEZ
+
+  S
+
+Your branch is up to date with 'origin/main'.
+
+Lembre-se de colocar na máquina:
+
+  git config --global user.email "seu@email.com"
+  git config --global user.name "seu nome"
+
+
+Para clonar o repositório
+
+  https://github.com/JenniferFlorencio/ProjetoIFSP.git
+
+
+Para criar uma Branch, digite o nome no terminal,
+
+  git checkout -b nome-do-seu-branch
+
+  git checkout nome-da-conta
