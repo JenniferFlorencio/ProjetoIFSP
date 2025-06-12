@@ -19,7 +19,7 @@ Este repositório serve como base de colaboração entre desenvolvedores e desig
 
 1 - Comece clonando o repositório, pode usar o terminal do Github ou Git Bash e digite:
 
-git clone https://github.com/JenniferFlorencio/ProjetoIFSP.git
+    git clone https://github.com/JenniferFlorencio/ProjetoIFSP.git
 
 O repositório clonado vai estar automáticamente em C:\Users\usuario\
 
@@ -60,13 +60,13 @@ Lembre-se de digitar, TODA VEZ que entrar no visual code:
 Verifique sua autoria nos commits
 Lembre-se de colocar na máquina:
 
-  git config --global user.email "seu@email.com"
-  git config --global user.name "seu nome"
+    git config --global user.email "seu@email.com"
+    git config --global user.name "seu nome"
 
 
 Mas se ainda não tem uma branch,
 Para criar uma Branch, digite o nome no terminal,
 
-  git checkout -b nome-do-seu-branch
+    git checkout -b nome-do-seu-branch
 
-  git checkout nome-da-conta
+    git checkout nome-da-conta
