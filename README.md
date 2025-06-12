@@ -70,3 +70,25 @@ Para criar uma Branch, digite o nome no terminal,
     git checkout -b nome-do-seu-branch
 
     git checkout nome-da-conta
+
+
+
+*Dicas para Backup:
+1 - Entre no diretorio do "backup": cd backup
+2 - Adicione o repositório original como remoto adicional:
+
+    git remote add backup-exemplo https://github.com/JenniferFlorencio/ProjetoIFSP.git
+
+(você pode chamar esse remoto de qualquer nome, não precisa ser backup-exemplo)
+
+3 - Busque as alterações do repositório original:
+
+    git fetch backup-exemplo
+
+4 - Faça o merge da main do projeto original na sua main do backup:
+
+    git merge backup-exemplo/main
+
+5 - Faça push para o seu repositório de backup no GitHub:
+
+    git push origin main
