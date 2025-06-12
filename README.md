@@ -13,7 +13,41 @@ Documentações complementares que auxiliem na compreensão e evolução do proj
 
 Este repositório serve como base de colaboração entre desenvolvedores e designers, promovendo uma integração eficiente entre as áreas técnicas e de design.
 
-*Dicas ao trabalhar com Branch:
+  *Dicas ao trabalhar com Branch:
+
+"Começando a trabalhar com branch, digamos que vá usar outra máquina, além da sua máquina pessoal, como os computadores do IFSP"
+
+1 - Comece clonando o repositório, pode usar o terminal do Github ou Git Bash e digite:
+
+git clone https://github.com/JenniferFlorencio/ProjetoIFSP.git
+
+O repositório clonado vai estar automáticamente em C:\Users\usuario\
+
+Caso queira movê-lo para Downloads por exemplo, digite mv \User\usuario\ProjetoIFSP \Users\usuario\Downloads\
+
+2 - Agora ENTRE no diretório, cd ProjetoIFSP (cd Downloads/ProjetoIFSP):
+
+    cd ProjetoIFSP
+
+3 - Liste todas as branch, pra ver se sua branch está presente:
+
+    git branch -r
+
+4 - TROQUE pra sua branch com:
+
+    git checkout nome-da-sua-branch
+
+5 - Confirme que esteja na sua branch:
+
+    git branch
+
+(é pra retornar *nome-da-sua-branch e embaixo main)
+
+6 - Abra a pasta (code .) e não se esqueça de digitar:
+
+    git pull origin main
+
+(O codigo acima vai fazer o pull e sincronizar com o main existente, já faz o commit pra sincronizar);
 
 Lembre-se de digitar, TODA VEZ que entrar no visual code:
 
@@ -23,23 +57,14 @@ Lembre-se de digitar, TODA VEZ que entrar no visual code:
 
     git pull origin main
 
-Lembre-se de digitar git checkout nome-da-conta, TODA VEZ
-
-  S
-
-Your branch is up to date with 'origin/main'.
-
+Verifique sua autoria nos commits
 Lembre-se de colocar na máquina:
 
   git config --global user.email "seu@email.com"
   git config --global user.name "seu nome"
 
 
-Para clonar o repositório
-
-  https://github.com/JenniferFlorencio/ProjetoIFSP.git
-
-
+Mas se ainda não tem uma branch,
 Para criar uma Branch, digite o nome no terminal,
 
   git checkout -b nome-do-seu-branch
