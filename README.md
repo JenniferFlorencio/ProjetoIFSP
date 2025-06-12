@@ -72,8 +72,10 @@ Para criar uma Branch, digite o nome no terminal,
     git checkout nome-da-conta
 
 
+Outros - Não muito importante, só pra testes:
 
 *Dicas para Backup:
+
 1 - Entre no diretorio do "backup": cd backup
 2 - Adicione o repositório original como remoto adicional:
 
