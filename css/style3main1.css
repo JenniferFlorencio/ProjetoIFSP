@@ -12,57 +12,36 @@ main {
 }
 
 .introducao-DRG {
-    background-color: var(--cor-body-background); /* Para visualização, pode remover depois */
-    margin: 0;
-    padding: 0;
+    /* background-color removido se não for mais necessário */
     width: 100%;
     height: 767px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza tudo horizontalmente */
+    align-items: center;
 }
 
 .introducao-DRG h1 {
-    display: inline-block;
     margin-top: 0;
-    padding: 0;
 }
 
-.introducao-DRG h1 span {
-    font-family: 'Roboto', Arial, sans-serif;
-    font-weight: 900;
-}
-
-/* LINHAS DO H1 - FORMATAR */
-
-.introducao-DRG .linha1 {
+.introducao-DRG .linha1,
+.introducao-DRG .linha2 {
     display: block;
-    width: 509px;
+    width: 100%;
+    max-width: 509px; /* ou 429px para linha2 */
     height: 62px;
-    background: #80a88740;
     line-height: 62px;
     font-size: 2rem;
     position: relative;
-    z-index: 1;
     padding-left: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 .introducao-DRG .linha2 {
-    display: block;
-    width: 429px;
-    height: 62px;
     background: #002c0847;
-    line-height: 62px;
-    font-size: 2rem;
-    position: relative;
-    top: -51px; /* sobrepõe quase metade das letras */
+    top: -51px;
     z-index: 2;
-    padding-left: 20px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* ENFEITES 1 */
@@ -233,10 +212,6 @@ main {
     z-index: 2;
 }
 
-
-
-
-
 /* CAIXAS DE RESPONSABILIDADES */
 
 .caixas-responsabilidades {
@@ -354,40 +329,32 @@ main {
     box-sizing: border-box;
 }
 
-.identificacao h4 {
-    background: #39A108;
+.identificacao h4,
+.identificacao .botao-link {
     width: 289px;
     height: 36px;
     color: #fff;
     font-family: 'Poppins', Arial, sans-serif;
     font-size: 1.1rem;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+}
+
+.identificacao h4 {
+    background: #39A108;
     font-weight: 400;
     margin: 0;
     text-align: left;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding-left: 16px;
 }
 
 .identificacao .botao-link {
     background: #4FC417;
-    width: 289px;
-    height: 36px;
-    color: #fff;
-    font-family: 'Poppins', Arial, sans-serif;
-    font-size: 1.1rem;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
     text-decoration: none;
-    border-radius: 10px;
-    margin: 0 0 0 0;
-    box-sizing: border-box;
-    padding-left: 16px; /* igual ao h4 */
-    margin-left: 36px; /* espaço para o ícone futuro */
+    margin-left: 36px;
 }
 
 .foto-diretor-container {
@@ -406,32 +373,37 @@ main {
     margin-left: -32px;           /* Aproxima do texto, ajuste conforme desejar */
 }
 
-.foto-diretor {
-    width: 192px;
-    height: 191px;
-    background-color: #fff;
-    border-radius: 100%;
-
-    margin-right: 50px;
-    display: block;
-    
-}
+.foto-diretor,
 .bola-decorativa {
     width: 192px;
     height: 191px;
-    background-color: red;
     border-radius: 100%;
-    margin-right: 55px;
     display: block;
 }
 
+.foto-diretor {
+    background-color: #fff;
+    margin-right: 50px;
+}
+.bola-decorativa {
+    background-color: red;
+    margin-right: 55px;
+}
 
-.linha-email {
+.linha-email,
+.linha-linkedin {
     display: flex;
     align-items: center;
-    margin-left: 36px; /* mesmo recuo do h4 e botao-link */
+    margin-left: 36px;
     margin-bottom: 10px;
-    height: 52px; /* igual ao h3 */
+}
+
+.linha-email {
+    height: 52px;
+}
+
+.linha-linkedin {
+    height: 36px;
 }
 
 .icone-email {
@@ -439,19 +411,9 @@ main {
     height: 44px;
     margin-left: 40px;
     margin-right: 10px;
-
-
     filter: brightness(0) invert(1);
     flex-shrink: 0;
     align-self: center; /* Alinha verticalmente o ícone */
-}
-
-.linha-linkedin {
-    display: flex;
-    align-items: center;
-    margin-left: 36px;
-    margin-bottom: 10px;
-    height: 36px; /* pode aumentar para 44px se quiser igual ao ícone */
 }
 
 .icone-linkedin {
@@ -464,10 +426,6 @@ main {
     display: block;
 }
 
-.identificacao,
-.identificacao h2,
-.identificacao h3,
-.identificacao h4,
-.identificacao .botao-link {
+.identificacao,.identificacao h2, .identificacao h3, .identificacao h4, .identificacao .botao-link {
     box-shadow: 0 4px 16px #0c0c0cc0; /* sombra mais forte */
 }
