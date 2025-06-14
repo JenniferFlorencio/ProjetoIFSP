@@ -28,12 +28,26 @@ body {
   grid-template-columns: 1fr minmax(300px, 757px) 1fr;
 }
 
-/* Novo container para o conteúdo principal */
-.main-content {
+.grid-template {
   grid-column: 2;
   width: 100%;
   max-width: 757px;
 }
+
+main {
+    background-color: var(--cor-body-background);
+    width: 100%;
+    min-height: 300vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+a {
+  text-decoration: none;
+}
+
+
+
 
 /*
 @media (max-width: 300px) {
