@@ -1,5 +1,5 @@
-
 /* --- 3ª DIV da IDENTIFICAÇÃO --- */
+
 .identificacao {
     width: 752px;
     height: 554px;
@@ -28,7 +28,7 @@
     height: 100%;
 }
 
-.identificacao h2 {
+.identificacao h2 {                /* está escrito o nome do diretor */
     background: #82FB48;
     width: 445px;
     height: 58px;
@@ -42,9 +42,11 @@
     border-radius: 5px;
     margin: 0 0 18px 0;
     box-sizing: border-box;
+
+    z-index: 1; /* Garante que o h2 fique acima de outros elementos */
 }
 
-.identificacao h3 {
+.identificacao h3 {                 /* está escrito: Diretor Geral Atual */
     background: #4FC417;
     width: 280px;
     height: 52px;
@@ -56,8 +58,11 @@
     font-size: 1.3rem;
     font-weight: 600;
     border-radius: 10px;
-    margin: 0 0 10px 0;
+    
+    margin: -25px 0 10px 0; /* Eleva o h3 para sobrepor levemente o h2 */
     box-sizing: border-box;
+    position: relative;
+    z-index: 0;
 }
 
 .identificacao h4, .identificacao .botao-link {
@@ -88,43 +93,86 @@
 }
 
 /* --- FOTO DIRETOR --- */
+
 .foto-diretor-container {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
+    position: relative;
+    width: 229px;
+    height: 201px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 229px;
-    height: 201px;
-    background: #4FC417;
-    border-radius: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    margin-top: -142px;
+    margin-top: 50%;
     margin-left: -32px;
+    background: none;
+    overflow: visible;
+    box-sizing: border-box;
 }
 
-.foto-diretor,
-.bola-decorativa {
+.bola-decorativa2, .bola-decorativa1, .foto-diretor-bola {
     width: 192px;
-    height: 191px;
-    border-radius: 100%;
-    display: block;
+    height: 192px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
 }
 
-.foto-diretor { background-color: #fff; margin-right: 50px; }
-.bola-decorativa { background-color: red; margin-right: 55px; }
+.foto-diretor-bola {
+    width: 192px;
+    height: 192px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Garante que nada saia da bola */
+}
+
+.foto-diretor {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/* Bola branca (frente) */
+.foto-diretor-bola {
+    left: 0;
+    background: #fff;
+    z-index: 2; /* Sempre na frente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bola verde claro (meio) */
+.bola-decorativa1 {
+    left: 20px;
+    background: #82FB48;
+    z-index: 1;
+}
+
+/* Bola verde escuro (fundo, mais à direita) */
+.bola-decorativa2 {
+    left: 40px;
+    background: #4FC417; /* verde escuro */
+    z-index: 0;
+}
+
+
+
 
 /* --- LINHAS E ÍCONES --- */
-.linha-email,
-.linha-linkedin {
+
+.linha-email, .linha-linkedin {
     display: flex;
     align-items: center;
     margin-left: 36px;
     margin-bottom: 10px;
 }
-.linha-email { height: 52px; }
-.linha-linkedin { height: 36px; }
+.linha-email {
+    height: 52px;
+}
+.linha-linkedin {
+    height: 36px;
+}
 
 .icone-email {
     width: 44px;
