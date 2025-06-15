@@ -1,0 +1,141 @@
+
+/* --- 1ª DIV de INTRODUÇÃO DRG, DRA, DAA --- */
+
+.introducao-DRG {
+    width: 100%;
+    height: 767px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.introducao-DRG h1 {
+    margin-top: 0;
+}
+
+/* LINHAS DO H1 */
+
+.introducao-DRG .linha1, .introducao-DRG .linha2 {
+    display: block;
+    height: 62px;
+    line-height: 62px;
+    font-size: 2rem;
+    position: relative;
+    padding-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.introducao-DRG .linha1 {
+    width: 509px;
+    background: #80a88740;
+    z-index: 1;
+}
+
+.introducao-DRG .linha2 {
+    width: 429px;
+    background: #002c0847;
+    top: -51px; /* sobrepõe quase metade das letras */
+    z-index: 2;
+}
+
+/* --- ENFEITES RETÂNGULOS VERDES --- */
+
+.enfeite-retangulos, .enfeite-retangulos2 {
+    width: 292px;
+    height: 101px;
+    display: flex;
+    flex-direction: column;
+}
+
+.enfeite-retangulos {
+    align-items: flex-end;
+    margin-left: auto;
+    margin-top: 5%;
+}
+
+.enfeite-retangulos2 {
+    align-items: flex-start;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+.retangulo-pequeno, .enfeite-retangulos2 .retangulo-pequeno {
+    width: 161px;
+    height: 63px;
+    background: #4FC417;
+    z-index: 2;
+}
+.retangulo-pequeno {
+    margin-bottom: -100px;
+}
+.enfeite-retangulos2 .retangulo-pequeno {
+    margin-bottom: -25px;
+}
+
+.retangulo-grande, .enfeite-retangulos2 .retangulo-grande {
+    width: 292px;
+    height: 63px;
+    background: #82FB48;
+    z-index: 1;
+}
+
+/* --- CAIXA TEXTO DRG --- */
+
+.caixa-texto {
+    width: 395px;
+    box-shadow: 0 2px 12px #0001;
+    padding: 0 32px;
+    text-align: left;
+}
+
+#linha1, #linha2 {
+    display: inline-block;
+    font-family: poppins, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    color: var(--cor-tipografia-geral);
+    white-space: nowrap;
+}
+#linha1 {
+    left: -50px; 
+}
+#linha1::before {
+    content: '';
+    display: inline-block;
+    vertical-align: 8px;
+    margin-right: 5px;
+    width: 6px;
+    height: 11px;
+    background-color: #015D12;
+}
+#linha2 {
+    padding-left: 11px;
+}
+#destaque-drg {
+    color: #015D12; font-weight: 900;
+}
+.verde-texto {
+    color: #329A45; font-weight: 900;
+}
+
+.descricao-caixa {
+    white-space: nowrap;
+    padding-left: 12px;
+    margin-top: 30px;
+}
+
+
+
+/* ANIMAÇÃO, deixei aqui só pra brincar, pode remover se não gostarem */
+
+.introducao-DRG, .enfeite-retangulos, .enfeite-retangulos2, .caixa-texto {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}

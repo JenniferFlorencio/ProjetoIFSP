@@ -4,6 +4,9 @@
 
 @import 'style2top.css';
 
-@import 'style3main1.css';
-@import 'style4main2.css';
-@import 'style5main3.css';
+@import 'style3mainDiv1.css';   /* Div da introdução */
+@import 'style4mainDiv2.css';   /* Div das responsabilidades (tem carrousel aqui) */
+@import 'style5mainDiv3.css';   /* Div da identificação */
+@import 'style6mainDiv4.css';   /* Div do FAQ */
+
+@import 'style7bottom.css';   /* Div do contato */

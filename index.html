@@ -6,19 +6,14 @@
     <title>Site Direcao</title>
 
     <link rel="stylesheet" href="css/style.css">
-
-    <link rel="stylesheet" href="/css/style1default.css">
-    <link rel="stylesheet" href="/css/style2top.css">
-    <link rel="stylesheet" href="/css/style3main.css">
-
-    <!-- Criar depois o style.css e @import os outros stylee-->
-
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">  link da fonte  Open Sans -->    
+    
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> <!-- tem negrito aqui -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <div class="grid-template">
+
     <header>
         <div class="faixa-verde">
             <div class="conteudo-faixa">
@@ -80,17 +75,26 @@
 
                 <!-- CAIXAS -->
 
-                <div class="caixas-responsabilidades">
-
+                <div class="caixas-responsabilidades carrousel-container">
                     <div class="caixa-responsabilidade"></div>
                     <div class="caixa-responsabilidade"></div>
                     <div class="caixa-responsabilidade"></div>
+                    <div class="caixa-responsabilidade"></div>
+                    <div class="caixa-responsabilidade"></div>
+                    <!-- Mais caixas no futuro -->
                 </div>
+
                 <div class="enfeite-quadrados-esquerda">
                     <div class="quadrado1"></div>
                     <div class="quadrado2"></div>
+                </div>
 
-                    <a href="#" class="carrousel"> PONTO PONTO PONTO</a>
+                <div class="carrousel">
+                    <span class="bolinha"></span>
+                    <span class="quadrado"></span>
+                    <span class="quadrado"></span>
+                    <span class="quadrado"></span>
+                    <span class="quadrado"></span>
                 </div>
             </div>
 
@@ -111,25 +115,96 @@
                 </div>
 
                 <div class="foto-diretor-container">
-                    <div class="bola-decorativa">
-                        <img class="foto-diretor" src="CAMINHO-DA-FOTO.jpg" alt="Foto do Diretor">
+
+                    <div class="bola-decorativa2"></div>
+                    <div class="bola-decorativa1"></div>
+                    <div class="foto-diretor-bola">
+                        
+                        <img class="foto-diretor" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%282023%E2%80%932027%29.jpg/1200px-Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%282023%E2%80%932027%29.jpg">
+                        
+                        <!-- Foto CORRETA do diretor geral -->
+                        <!-- "https://media.licdn.com/dms/image/v2/D4D03AQHuGsUnqm-8iQ/profile-displayphoto-shrink_800_800/B4DZdHYMauHwAg-/0/1749249215106?e=1755734400&v=beta&t=tONksGFXc2bsoV2uwyYW8-Km2xBynW5mQZ7yqwzF9WM">  -->
+
+                        <!-- LINKEDIN DO ADRIANO https://www.linkedin.com/in/adrianosouzam/-->
+                    
+                    
                     </div>
                 </div>
             </div>
 
-            
+            <!-- DIV DO FAQ -->
+
+            <div class="faq">
+
+                <div class="faq-titulo">
+                    <h2>Perguntas</h2>
+                    <h1>Frequentes</h1>
+                </div>
+                <div class="faq-container">
+
+                    <div class="faq-item">
+                        <button class="faq-toggle" aria-expanded="false">
+                            <span class="faq-title">Qual é a função principal da Direção Geral (DRG)?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur.
+                        </div>
+
+                        <button class="faq-toggle" aria-expanded="false">
+                            <span class="faq-title">A DRG atende diretamente os alunos?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur.
+                        </div>
+
+                        <button class="faq-toggle" aria-expanded="false">
+                            <span class="faq-title">Quem pode entrar em contato com a DRG?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur.
+                        </div>
+
+                        <button class="faq-toggle" aria-expanded="false">
+                            <span class="faq-title">Quais decisões a DRG pode tomar?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            A DRG pode autorizar despesas, presidir conselhos, 
+                            representar o campus externamente e tomar decisões 
+                            relacionadas à gestão e ao planejamento institucional.
+                        </div>
+
+                        <button class="faq-toggle" aria-expanded="false">
+                            <span class="faq-title">Como posso falar com a Direção Geral?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-question">                    
+                        <span class="faq-duvidas">Ainda com<br> dúvidas?</span>
+                        <button class="btn-duvidas">Converse com a gente</button>
+                </div>
+            </div> <!-- Fim da div FAQ -->        
         </section> <!-- Final da página Diretoria DRG-->
+
     </main>
 
-
-
         <footer class="rodape">
+
             <!-- Alguém faça o rodapé -->
+             
         </footer>
-    </div>
 
-
-
+    
+    </div><!-- Fim do grid-template -->
     <script src="/js/script.js"></script>
 </body>
 </html>
+
