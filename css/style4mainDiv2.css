@@ -82,29 +82,25 @@
 /* --- CARROUSEL das CAIXAS --- */
 .carrousel {
     display: flex;
-    align-items: center;
-    justify-content: center; /* Centraliza horizontalmente */
     gap: 8px;
-    margin-top: 20px;
-    margin-left: 200%;
-    background: none;
-    box-shadow: none;
-    min-height: 20px;
-    width: fit-content; /* Garante que só ocupe o espaço dos itens */
+    margin-top: -25px; /* Espaço entre as caixas e o carrousel */
+    margin-left: 170px;
+    margin-bottom: 0;
+    width: 100%;
 }
 
 .carrousel .bolinha {
     display: inline-block;
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: #474747;
 }
 
 .carrousel .quadrado {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background: #646464;
 }
 
@@ -119,24 +115,35 @@
 
 /* --- CONTROLES DO CARROSSEL --- */
 .carousel-controls {
-    position: absolute;
-    right: 30px;
-    bottom: 20px;
+    position: static;      /* ou remova o position */
     display: flex;
     gap: 10px;
-    z-index: 10;
+    justify-content: flex-end; /* Alinha à direita */
+    margin-top: -50px;
+    margin-right: 150px;
+    width: 100%;
 }
 .carousel-btn {
-    background: #185924;
-    color: #fff;
+    background: #344A47;    /* Cor da bola */
+    color: #fff;            /* Cor da seta */
     border: none;
     border-radius: 50%;
-    width: 38px;
-    height: 38px;
-    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
+
+    font-size: 2.0rem;      /* Ajuste para caber bem na bola menor */
+    font-weight: 900;
+
     cursor: pointer;
     box-shadow: 0 2px 8px #0002;
     transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+.carousel-btn:hover:not(:disabled) {
+    background: #185924;
 }
 .carousel-btn:disabled {
     opacity: 0.4;

@@ -37,7 +37,7 @@ body {
 main {
     background-color: var(--cor-body-background);
     width: 100%;
-    min-height: 300vh;
+    min-height: 340vh;  /* ALTURA DO ESPAÇO EM BRANCO, VCS PRECISAM MEXER NISTO AQUI PRA FAZER O RODAPÉ CORRETAMENTE */
     display: flex;
     flex-direction: column;
     align-items: stretch;
