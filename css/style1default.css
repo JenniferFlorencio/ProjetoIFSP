@@ -46,18 +46,3 @@ a {
   text-decoration: none;
 }
 
-
-
-
-/*
-@media (max-width: 300px) {
-  body {
-    grid-template-columns: 1fr;
-  }
-  .main-content {
-    grid-column: 1;
-    max-width: 100%;
-    padding: 0 10px;
-  }
-}
-*/

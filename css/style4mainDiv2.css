@@ -152,3 +152,10 @@
 .principais-responsabilidades {
     position: relative; /* Para o posicionamento absoluto funcionar */
 }
+
+/* --- POSIÇÃO DOS CONTROLES DO CARROSSEL --- */
+/* Posição padrão para telas grandes */
+.carousel-controls {
+    justify-content: flex-end;
+    margin-right: 30px;
+}

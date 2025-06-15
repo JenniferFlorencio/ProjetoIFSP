@@ -9,4 +9,8 @@
 @import 'style5mainDiv3.css';   /* Div da identificação */
 @import 'style6mainDiv4.css';   /* Div do FAQ */
 
-@import 'style7bottom.css';   /* Div do contato */
+
+@import 'style7bottom.css';   /* Div do RODAPÉ*/
+
+
+@import 'style8mobile.css';   /* Estilos para o mobile */
