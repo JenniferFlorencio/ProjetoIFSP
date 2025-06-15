@@ -1,0 +1,31 @@
+
+/* Estilos para o mobile */
+
+
+@media (max-width: 700px) {
+
+    .carousel-controls {
+        justify-content: center;
+        margin-right: 0;
+        margin-top: 16px;
+    }
+
+}
+
+
+
+
+
+/*
+@media (max-width: 300px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+  .main-content {
+    grid-column: 1;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+*/
+

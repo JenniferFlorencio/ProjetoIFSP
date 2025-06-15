@@ -127,10 +127,6 @@
     background: #80A887;
 }
 
-.faq-toggle[aria-expanded="true"] .faq-title,
-.faq-toggle[aria-expanded="true"] .faq-icon {
-}
-
 .faq-answer {
     position: relative;
     z-index: 2; /* Fica acima do botão */
