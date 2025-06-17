@@ -61,6 +61,7 @@ Verifique sua autoria nos commits
 Lembre-se de colocar na máquina:
 
     git config --global user.email "seu@email.com"
+    
     git config --global user.name "seu nome"
 
 
