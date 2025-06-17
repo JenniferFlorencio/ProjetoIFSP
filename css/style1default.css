@@ -27,7 +27,7 @@ body {
   display: grid;
   grid-template-columns: 1fr minmax(300px, 757px) 1fr;
 }
-
+/* O tamanho 757px é o que está no Figma  */
 .grid-template {
   grid-column: 2;
   width: 100%;

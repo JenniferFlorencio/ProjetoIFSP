@@ -2,20 +2,41 @@
 /* Estilos para o mobile */
 
 
+
 @media (max-width: 700px) {
 
-    .carousel-controls {
-        justify-content: center;
-        margin-right: 0;
-        margin-top: 16px;
-    }
+  .botoes a {
+
+    padding: 10px;
+  }
 
 }
 
+@media (max-width: 700px) {
 
+  .carousel-controls {
+      justify-content: center;
+      margin-right: 0;
+      margin-top: 16px;
+  }
 
+}
 
-
+/* Remove o grid em telas pequenas */ /* Espaçamento lateral */ /* Deixa a altura crescer com o conteúdo */
+/*@media (max-width: 700px) {
+  body {
+    display: block; 
+  }
+  .grid-template {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px; 
+  }
+  main {
+    min-height: auto; 
+  }
+}
+*/
 /*
 @media (max-width: 300px) {
   body {
