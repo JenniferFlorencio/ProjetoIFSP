@@ -1,0 +1,268 @@
+/* ===============================
+   TÍTULOS DINÂMICOS - IFSP DIRETORIAS
+   Baseado no código fornecido pelo usuário
+   =============================== */
+
+/* Importa a fonte Inter do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+
+/* Usamos a fonte Inter como padrão para os títulos */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Container principal para o título, com posicionamento relativo */
+/* Isso é necessário para posicionar as barras de fundo */
+.title-container {
+    position: relative;
+    z-index: 1; /* Garante que o texto fique acima das barras */
+}
+
+/* Criamos as barras de fundo usando os pseudo-elementos ::before e ::after */
+.title-container::before,
+.title-container::after {
+    content: ''; /* Pseudo-elementos precisam dessa propriedade */
+    position: absolute; /* Posicionamento absoluto em relação ao .title-container */
+    left: 50%; /* Centraliza o início das barras no meio do container */
+    transform: translateX(-50%); /* Ajusta o centro exato das barras */
+    background-color: rgba(147, 177, 147, 0.6); /* Cor verde clara e semitransparente */
+    z-index: -1; /* Coloca as barras atrás do texto */
+    border-radius: 0.375rem; /* Bordas arredondadas */
+}
+
+/* Estilos para a barra de fundo superior */
+.title-container::before {
+    width: 120%; /* Barra superior MAIOR que a inferior */
+    height: 55%;
+    top: -5%; /* Levemente deslocada para cima */
+}
+
+/* Estilos para a barra de fundo inferior */
+.title-container::after {
+    width: 100%; /* Barra inferior MENOR que a superior */
+    height: 55%;
+    bottom: -5%; /* Levemente deslocada para baixo para criar a sobreposição */
+}
+
+/* Sombra de texto customizada para replicar o efeito da imagem */
+.text-custom-shadow {
+    text-shadow: 2px 2px 4px rgba(40, 40, 40, 0.6);
+}
+
+/* Texto principal - usando exatamente o estilo fornecido */
+.texto-titulo-ifsp {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900; /* Font-black do Tailwind */
+    color: #2F4F2F; /* Cor do texto original */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.025em; /* tracking-wide do Tailwind */
+    line-height: 1.1; /* leading-tight do Tailwind */
+    margin: 0;
+}
+
+/* Aplicar a sombra customizada */
+.texto-titulo-ifsp {
+    text-shadow: 1px 1px 3px rgba(40, 40, 40, 0.4);
+}
+
+/* ===============================
+   VARIAÇÕES POR DIRETORIA
+   Mantendo o estilo original das barras
+   =============================== */
+
+/* Todas as diretorias usam a mesma cor de fundo das barras */
+/* Como no código original fornecido */
+.title-container.titulo-drg::before,
+.title-container.titulo-drg::after,
+.title-container.titulo-dae::before,
+.title-container.titulo-dae::after,
+.title-container.titulo-daa::before,
+.title-container.titulo-daa::after {
+    background-color: rgba(147, 177, 147, 0.6); /* Cor verde clara e semitransparente */
+}
+
+/* ===============================
+   EFEITOS HOVER REMOVIDOS
+   As sombras agora mantêm tamanho fixo
+   =============================== */
+
+/* ===============================
+   ANIMAÇÕES DE ENTRADA
+   =============================== */
+
+.titulo-animado {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: tituloEntrada 1s ease-out forwards;
+}
+
+@keyframes tituloEntrada {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(-5px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Delays para animação sequencial */
+.titulo-animado:nth-child(1) { animation-delay: 0.1s; }
+.titulo-animado:nth-child(2) { animation-delay: 0.3s; }
+.titulo-animado:nth-child(3) { animation-delay: 0.5s; }
+
+/* ===============================
+   TAMANHOS RESPONSIVOS
+   Baseado no Tailwind CSS do código original
+   =============================== */
+
+/* Tamanhos responsivos como no código original */
+.texto-titulo-ifsp {
+    font-size: 2.25rem; /* text-4xl base */
+}
+
+/* Responsividade com breakpoints do Tailwind */
+@media (min-width: 640px) {
+    .texto-titulo-ifsp {
+        font-size: 3rem; /* sm:text-5xl */
+    }
+}
+
+@media (min-width: 768px) {
+    .texto-titulo-ifsp {
+        font-size: 3.75rem; /* md:text-6xl */
+    }
+}
+
+@media (min-width: 1024px) {
+    .texto-titulo-ifsp {
+        font-size: 4.5rem; /* lg:text-7xl */
+    }
+}
+
+/* ===============================
+   RESPONSIVIDADE ADICIONAL
+   =============================== */
+
+/* Ajustes para telas muito pequenas */
+@media screen and (max-width: 480px) {
+    .title-container::before {
+        width: 102%;
+        height: 50%;
+    }
+
+    .title-container::after {
+        width: 105%;
+        height: 50%;
+    }
+}
+
+/* ===============================
+   CLASSES UTILITÁRIAS
+   =============================== */
+
+/* Centralização */
+.titulo-centralizado {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Versão compacta */
+.titulo-compacto {
+    padding: 10px 20px;
+}
+
+.titulo-compacto::before,
+.titulo-compacto::after {
+    height: 45%;
+}
+
+/* Versão sem animação */
+.titulo-estatico {
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+/* Versão com sombra extra */
+.titulo-sombra-forte .texto-titulo-ifsp {
+    text-shadow: 3px 3px 8px rgba(1, 93, 18, 0.5);
+}
+
+/* ===============================
+   INTEGRAÇÃO COM PROJETO EXISTENTE
+   =============================== */
+
+/* Substitui a imagem de título existente */
+.img-titulo-substituir {
+    display: none; /* Oculta a imagem original */
+}
+
+/* Container para substituição */
+.titulo-dinamico-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+/* Ajustes para a seção introdução-DRG */
+.introducao-DRG .titulo-dinamico-wrapper {
+    margin: 20px 0;
+}
+
+/* ===============================
+   MODO ESCURO (FUTURO)
+   =============================== */
+
+@media (prefers-color-scheme: dark) {
+    .titulo-ifsp-container::before,
+    .titulo-ifsp-container::after {
+        opacity: 0.6;
+    }
+
+    .texto-titulo-ifsp {
+        color: #E8F5E8;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* ===============================
+   ACESSIBILIDADE
+   =============================== */
+
+/* Reduz animações para usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    .titulo-animado {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .titulo-ifsp-container::before,
+    .titulo-ifsp-container::after {
+        transition: none;
+    }
+}
+
+/* Melhora o contraste para usuários com dificuldades visuais */
+@media (prefers-contrast: high) {
+    .texto-titulo-ifsp {
+        color: var(--cor-tipografia-escura);
+        text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+    }
+
+    .titulo-ifsp-container::before,
+    .titulo-ifsp-container::after {
+        opacity: 0.9;
+    }
+}

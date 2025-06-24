@@ -1,0 +1,1444 @@
+/* ===============================
+   VARIÁVEIS CSS GLOBAIS
+   =============================== */
+
+:root {
+  /* --- CORES PRINCIPAIS --- */
+  --cor-verde-principal: #015D12;
+  --cor-verde-secundario: #329A45;
+  --cor-verde-claro: #4FC417;
+  --cor-verde-muito-claro: #82FB48;
+  --cor-verde-suave: #80A887;
+  
+  /* --- CORES DE FUNDO --- */
+  --cor-body-background: #FFFFFF;
+  --cor-fundo-escuro: #001815;
+  --cor-fundo-medio: #192F2C;
+  --cor-fundo-claro: #D4DAD4;
+  --cor-fundo-cinza: #F8F8F8;
+  
+  /* --- TIPOGRAFIA --- */
+  --cor-tipografia-geral: #2B4430;
+  --cor-tipografia-clara: #FFFFFF;
+  --cor-tipografia-escura: #083410;
+  --cor-tipografia-verde: #015C12;
+  --cor-tipografia-verde-claro: #185924;
+  
+  /* --- FAMÍLIAS DE FONTES --- */
+  --fonte-principal: "Poppins", Arial, Helvetica, sans-serif;
+  --fonte-secundaria: "Roboto", Arial, Helvetica, sans-serif;
+  --fonte-terciaria: "Inter", Arial, Helvetica, sans-serif;
+  --fonte-especial: "Josefin Sans", Arial, Helvetica, sans-serif;
+  --fonte-display: "Press Start 2P", monospace;
+  
+  /* --- TAMANHOS DE FONTE --- */
+  --fonte-pequena: 14px;
+  --fonte-normal: 16px;
+  --fonte-media: 20px;
+  --fonte-grande: 24px;
+  --fonte-titulo-pequeno: 28px;
+  --fonte-titulo-medio: 30px;
+  --fonte-titulo-grande: 40px;
+  
+  /* --- PESOS DE FONTE --- */
+  --peso-leve: 300;
+  --peso-normal: 400;
+  --peso-medio: 500;
+  --peso-semi-bold: 600;
+  --peso-bold: 700;
+  --peso-extra-bold: 900;
+  
+  /* --- CORES DE INTERAÇÃO --- */
+  --cor-hover: #e0e0e0;
+  --cor-ativo: #185924;
+  --cor-desabilitado: #646464;
+  --cor-borda: #e0e0e0;
+  --cor-borda-escura: #2B4430;
+  
+  /* --- SOMBRAS --- */
+  --sombra-leve: 0 2px 6px rgba(0, 0, 0, 0.15);
+  --sombra-media: 0 4px 10px rgba(0, 0, 0, 0.2);
+  --sombra-forte: 0 4px 16px rgba(12, 12, 12, 0.75);
+  --sombra-texto: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --sombra-caixa: 0 2px 12px rgba(0, 0, 0, 0.1);
+  
+  /* --- CORES ADICIONAIS --- */
+  --cor-cinza-claro: #474747;
+  --cor-cinza-medio: #646464;
+  --cor-verde-escuro-ativo: #185924;
+  --cor-verde-medio: #39A108;
+  
+  /* --- BREAKPOINTS RESPONSIVOS --- */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop-small: 1024px;
+  --breakpoint-desktop: 1200px;
+  --breakpoint-desktop-large: 1440px;
+  
+  /* --- ESPAÇAMENTOS RESPONSIVOS --- */
+  --espacamento-pequeno: 10px;
+  --espacamento-medio: 20px;
+  --espacamento-grande: 40px;
+  --espacamento-extra-grande: 80px;
+}
+
+/* ===============================
+   1 SESSÃO
+   =============================== */
+main{
+    margin-top: 200px;
+}
+
+/* Garante que imagens sejam responsivas por padrão */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Container geral responsivo */
+.grid-template {
+    width: 100%;
+    overflow-x: hidden;
+}
+.img-titulo{
+    width: 550px;
+}
+.introducao-DRG {
+    width: 100%;
+    height: 767px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:15%;
+}
+.introducao-DRG h1 {
+    margin-top: 0;
+}
+
+/* LINHAS DO H1 */
+
+.introducao-DRG .linha1, .introducao-DRG .linha2 {
+    display: block;
+    height: 62px;
+    line-height: 62px;
+    font-size: 2rem;
+    position: relative;
+    padding-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.introducao-DRG .linha1 {
+    width: 509px;
+    background: #80a88740;
+    z-index: 1;
+}
+
+.introducao-DRG .linha2 {
+    width: 429px;
+    background: #002c0847;
+    top: -51px; /* sobrepõe quase metade das letras */
+    z-index: 2;
+}
+
+/* --- ENFEITES RETÂNGULOS VERDES --- */
+
+.enfeite-retangulos, .enfeite-retangulos2 {
+    width: 292px;
+    height: 101px;
+    display: flex;
+    flex-direction: column;
+}
+
+.enfeite-retangulos {
+    align-items: flex-end;
+    margin-left: auto;
+    margin-top: 5%;
+}
+
+.enfeite-retangulos2 {
+    align-items: flex-start;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+.retangulo-pequeno, .enfeite-retangulos2 .retangulo-pequeno {
+    width: 161px;
+    height: 63px;
+    background: linear-gradient(45deg, var(--cor-verde-claro), var(--cor-verde-muito-claro));
+    z-index: 2;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    animation: float 4s ease-in-out infinite;
+    cursor: pointer;
+}
+
+.retangulo-pequeno {
+    margin-bottom: -100px;
+    animation-delay: 0s;
+}
+
+.enfeite-retangulos2 .retangulo-pequeno {
+    margin-bottom: -25px;
+    animation-delay: 2s;
+}
+
+.retangulo-grande, .enfeite-retangulos2 .retangulo-grande {
+    width: 292px;
+    height: 63px;
+    background: linear-gradient(45deg, var(--cor-verde-muito-claro), var(--cor-verde-claro));
+    z-index: 1;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    animation: float 4s ease-in-out infinite;
+    cursor: pointer;
+}
+
+.retangulo-grande {
+    animation-delay: 1s;
+}
+
+.enfeite-retangulos2 .retangulo-grande {
+    animation-delay: 3s;
+}
+
+/* Animação flutuante para os retângulos */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-3px) rotate(0.5deg);
+    }
+    50% {
+        transform: translateY(-6px) rotate(1deg);
+    }
+    75% {
+        transform: translateY(-3px) rotate(0.5deg);
+    }
+}
+
+/* Efeito hover nos retângulos */
+.retangulo-pequeno:hover, .retangulo-grande:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: var(--sombra-media);
+    animation-play-state: paused;
+}
+
+/* --- CAIXA TEXTO DRG --- */
+
+.caixa-texto {
+    width: 800px;
+    height: 800px;
+    box-shadow: var(--sombra-caixa);
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.descricao-caixa span{
+    font-family: var(--fonte-secundaria);
+    font-weight: var(--peso-leve);
+    font-size: var(--fonte-titulo-pequeno);
+}
+
+#linha1, #linha2 {
+    display: inline-block;
+    font-family: var(--fonte-principal);
+    font-weight: var(--peso-semi-bold);
+    font-size: var(--fonte-titulo-grande);
+    color: var(--cor-tipografia-geral);
+    white-space: nowrap;
+}
+#linha1 {
+    left: -50px; 
+}
+#linha1::before {
+    content: '';
+    display: inline-block;
+    vertical-align: 8px;
+    margin-right: 5px;
+    width: 6px;
+    height: 11px;
+    background-color: var(--cor-verde-principal);
+}
+#linha2 {
+    padding-left: 11px;
+}
+#destaque-drg {
+    color: var(--cor-verde-principal); 
+    font-weight: var(--peso-extra-bold);
+}
+.verde-texto {
+    color: var(--cor-verde-secundario); 
+    font-weight: var(--peso-extra-bold);
+}
+
+.descricao-caixa {
+    white-space: nowrap;
+    padding-left: 12px;
+    margin-top: 30px;
+}
+
+
+
+/* ===============================
+   ANIMAÇÕES E EFEITOS VISUAIS
+   =============================== */
+
+/* Animações de entrada */
+.introducao-DRG, .enfeite-retangulos, .enfeite-retangulos2, .caixa-texto {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.introducao-DRG {
+    animation-delay: 0.1s;
+}
+
+.enfeite-retangulos {
+    animation-delay: 0.2s;
+}
+
+.caixa-texto {
+    animation-delay: 0.3s;
+}
+
+.enfeite-retangulos2 {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+/* Animação para as principais responsabilidades */
+.principais-responsabilidades {
+    opacity: 0;
+    animation: fadeInScale 1s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animação sequencial para as caixas */
+.caixa-responsabilidade {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    animation: slideInBox 0.6s ease-out forwards;
+}
+
+.caixa-responsabilidade:nth-child(1) { animation-delay: 0.8s; }
+.caixa-responsabilidade:nth-child(2) { animation-delay: 0.9s; }
+.caixa-responsabilidade:nth-child(3) { animation-delay: 1.0s; }
+.caixa-responsabilidade:nth-child(4) { animation-delay: 1.1s; }
+.caixa-responsabilidade:nth-child(5) { animation-delay: 1.2s; }
+
+@keyframes slideInBox {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Animações para seções adicionais */
+.identificacao {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 1.4s forwards;
+}
+
+.faq {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 1.6s forwards;
+}
+
+/* Animação para itens do FAQ */
+.faq-item {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.faq-item:nth-child(1) { animation-delay: 1.8s; }
+.faq-item:nth-child(2) { animation-delay: 1.9s; }
+.faq-item:nth-child(3) { animation-delay: 2.0s; }
+.faq-item:nth-child(4) { animation-delay: 2.1s; }
+.faq-item:nth-child(5) { animation-delay: 2.2s; }
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animação para o botão de dúvidas */
+.faq-question {
+    width:1000px;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: bounceIn 0.6s ease-out 2.4s forwards;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --- 2ª DIV das PRINCIPAIS RESPONSABILIDADES --- */
+
+.principais-responsabilidades {
+    background-color: var(--cor-body-background);
+    width: 757px;
+    height: 641px;
+    margin: 40px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.principais-responsabilidades h2 {
+    margin-bottom: 2%;
+    line-height: 40px;
+    white-space: nowrap;
+    font-family: var(--fonte-principal);
+    font-size: var(--fonte-titulo-grande);
+    font-weight: var(--peso-semi-bold);
+    color: var(--cor-tipografia-geral);
+    text-shadow: var(--sombra-texto);
+}
+
+/* --- ENFEITES QUADRADOS VERDES --- */
+
+.enfeite-quadrados-direita, .enfeite-quadrados-esquerda {
+    width: 44px;
+    height: 47px;
+    position: relative;
+}
+
+.enfeite-quadrados-direita {
+    margin-left: auto;
+}
+.enfeite-quadrados-esquerda {
+    margin-right: auto;
+}
+.enfeite-quadrados-direita .quadrado1, .enfeite-quadrados-esquerda .quadrado1 {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, #4FC417, #82FB48);
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    animation: pulse 2s ease-in-out infinite;
+    cursor: pointer;
+}
+
+.enfeite-quadrados-direita .quadrado2, .enfeite-quadrados-esquerda .quadrado2 {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, #82FB48, #4FC417);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    animation: pulse 2s ease-in-out infinite;
+    animation-delay: 1s;
+    cursor: pointer;
+}
+
+/* Animação de pulsação para os quadrados */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1) rotate(5deg);
+        opacity: 0.8;
+    }
+}
+
+/* Efeito hover nos quadrados */
+.enfeite-quadrados-direita .quadrado1:hover, 
+.enfeite-quadrados-esquerda .quadrado1:hover,
+.enfeite-quadrados-direita .quadrado2:hover, 
+.enfeite-quadrados-esquerda .quadrado2:hover {
+    transform: scale(1.2) rotate(15deg);
+    box-shadow: var(--sombra-media);
+    animation-play-state: paused;
+}
+
+/* --- CAIXAS --- */
+
+.caixas-responsabilidades {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding-top: 24px;    /* Espaço para sombra acima */
+    padding-bottom: 24px; /* Espaço para sombra abaixo */
+}
+
+.caixa-responsabilidade {
+    min-width: 223px;
+    height: 346px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1.5px solid #e0e0e0;
+    box-shadow: 0 12px 24px -6px rgba(0,0,0,0.22);
+    margin: 0 10px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito hover nas caixas */
+.caixa-responsabilidade:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px -8px rgba(0,0,0,0.3);
+    border-color: var(--cor-verde-principal);
+}
+
+/* Efeito de brilho no hover */
+.caixa-responsabilidade::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s;
+}
+
+.caixa-responsabilidade:hover::before {
+    left: 100%;
+}
+
+/* Animação do ícone no hover */
+.caixa-responsabilidade:hover .caixa-icone {
+    transform: scale(1.1) rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+/* Efeito no texto do hover */
+.caixa-responsabilidade:hover .caixa-conteudo h3 {
+    color: var(--cor-verde-principal);
+    transition: color 0.3s ease;
+}
+
+/* Conteúdo das caixas de responsabilidade */
+.caixa-conteudo {
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.caixa-icone {
+    font-size: 48px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.caixa-conteudo h3 {
+    font-family: var(--fonte-principal);
+    font-size: var(--fonte-normal);
+    font-weight: var(--peso-semi-bold);
+    color: var(--cor-tipografia-verde);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.caixa-conteudo p {
+    font-family: var(--fonte-secundaria);
+    font-size: var(--fonte-pequena);
+    color: var(--cor-tipografia-geral);
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* --- CARROUSEL das CAIXAS --- */
+.carrousel {
+    display: flex;
+    gap: 8px;
+    margin-top: -25px; /* Espaço entre as caixas e o carrousel */
+    margin-left: 170px;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.carrousel .bolinha {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #474747;
+}
+
+.carrousel .quadrado {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #646464;
+}
+
+.carrousel-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    /* Defina uma largura fixa se quiser limitar o carrossel */
+    /* width: 700px; */
+    position: relative;
+}
+
+/* --- CONTROLES DO CARROSSEL --- */
+.carousel-controls {
+    position: static;      /* ou remova o position */
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end; /* Alinha à direita */
+    margin-top: -50px;
+    margin-right: 150px;
+    width: 100%;
+}
+.carousel-btn {
+    background: linear-gradient(135deg, #344A47, #185924);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.8rem;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de brilho nos botões do carrossel */
+.carousel-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.carousel-btn:hover:not(:disabled)::before {
+    left: 100%;
+}
+
+.carousel-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #185924, #4FC417);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.carousel-btn:active:not(:disabled) {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+}
+
+.carousel-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+    background: #ccc;
+    transform: none;
+}
+.principais-responsabilidades {
+    position: relative; /* Para o posicionamento absoluto funcionar */
+}
+
+/* --- POSIÇÃO DOS CONTROLES DO CARROSSEL --- */
+/* Posição padrão para telas grandes */
+.carousel-controls {
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+
+/* --- 3ª DIV da IDENTIFICAÇÃO --- */
+
+.identificacao {
+    
+    height: auto;
+    min-height: 50vh;
+    background: #185924;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    border-radius: 10px;
+    box-sizing: border-box;
+    gap: var(--espacamento-grande);
+    margin-top:7%;
+}
+
+.identificacao-info {
+    margin: 0;
+    align-items: flex-start;
+    text-align: left;
+    width: auto;
+    overflow: visible;
+    justify-content: flex-start;
+    margin: 40px 0 0 10%; /* desloca para a direita */
+}
+
+.identificacao h2 {                /* está escrito o nome do diretor */
+    background: #82FB48;
+    width: 445px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0f0b;
+    font-family: 'Poppins-SemiBold', Helvetica, Arial, sans-serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    margin: 0 0 18px 0;
+    box-sizing: border-box;
+
+    z-index: 1; /* Garante que o h2 fique acima de outros elementos */
+}
+
+.identificacao h3 {                 /* está escrito: Diretor Geral Atual */
+    background: #4FC417;
+    width: 280px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Poppins-SemiBold', Helvetica, Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-radius: 10px;
+    
+    margin: -25px 0 10px 50px; /* Eleva o h3 para sobrepor levemente o h2 */
+    box-sizing: border-box;
+    position: relative;
+    z-index: 0;
+}
+
+.identificacao h4, .identificacao .botao-link {
+    width: 289px;
+    height: 36px;
+    color: #fff;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+}
+
+.identificacao h4 {
+    background: #39A108;
+    font-weight: 400;
+    margin: 0;
+    text-align: left;
+}
+
+.identificacao .botao-link {
+    background: #4FC417;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 37px;
+    width: 350px;
+}
+
+/* --- FOTO DIRETOR --- */
+
+
+
+.foto-diretor-container {
+    position: relative;
+    width: 229px;
+    height: 201px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha à esquerda */
+    margin: 33px 0 0 0; /* Remove auto centralização */
+    background: none;
+    overflow: visible;
+    box-sizing: border-box;
+    grid-column: unset !important;
+    grid-row: unset !important;
+}
+
+.bola-decorativa2, .bola-decorativa1, .foto-diretor-bola {
+    width: 192px;
+    height: 192px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+}
+
+.foto-diretor-bola {
+    width: 192px;
+    height: 192px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Garante que nada saia da bola */
+}
+
+.foto-diretor {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/* Bola branca (frente) */
+.foto-diretor-bola {
+    left: 0;
+    background: #fff;
+    z-index: 2; /* Sempre na frente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bola verde claro (meio) */
+.bola-decorativa1 {
+    left: 20px;
+    background: #82FB48;
+    z-index: 1;
+}
+
+/* Bola verde escuro (fundo, mais à direita) */
+.bola-decorativa2 {
+    left: 40px;
+    background: #4FC417; /* verde escuro */
+    z-index: 0;
+}
+
+
+
+
+/* --- LINHAS E ÍCONES --- */
+
+.linha-email, .linha-linkedin {
+    display: flex;
+    align-items: center;
+    margin-left: 36px;
+    margin-bottom: 10px;
+}
+.linha-email {
+    height: 52px;
+}
+.linha-linkedin {
+    height: 36px;
+}
+
+.icone-email {
+    width: 44px;
+    height: 44px;
+    margin-left: 40px;
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+    flex-shrink: 0;
+    align-self: center;
+}
+.icone-linkedin {
+    width: 32px;
+    height: 32px;
+    margin-left: 40px;
+    margin-right: -16px;
+    flex-shrink: 0;
+    align-self: center;
+    display: block;
+}
+
+/* --- SOMBRA EM IDENTIFICAÇÃO --- */
+.identificacao,
+.identificacao h2,
+.identificacao h3,
+.identificacao h4,
+.identificacao .botao-link {
+    box-shadow: 0 4px 16px #0c0c0cc0;
+}
+
+/* --- 3ª DIV da IDENTIFICAÇÃO --- */
+
+.faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin: 40px 0 0 0;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.faq-item {
+    display: flex;
+    flex-direction: column;
+    gap: 13px; /* Espaço entre as caixas */
+    margin-top: 84px;
+    align-items: center;
+}
+
+.faq-titulo {
+    text-align: center;
+    position: relative;
+    padding-top: 32px; /* Espaço para a linha */
+    font-size: 500px;
+    
+}
+
+.faq-titulo::before {
+    content: "";
+    display: block;
+    width: 300px;
+    height: 3px;
+    background: #4FC417;
+    border-radius: 4px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.faq-item h3 {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #185924;
+    background: #fff;
+    width: 601px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #2B4430;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 24px;
+    margin: 0;
+}
+
+.faq-question {
+    width: 435px;
+    height: 100px;
+    background: #015C12;
+    border-radius: 5px;
+    margin: 42px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 63px;
+    box-sizing: border-box;
+    padding: 0 24px;
+}
+
+.faq-toggle {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #185924;
+    background: #fff;
+    width: 601px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #2B4430;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, border-radius 0.3s, margin-bottom 0.2s;
+    gap: 16px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+
+    padding: 0 24px 0 24px;
+    margin: 0;
+    margin-bottom: -20px; /* Remova o margin-bottom daqui */
+    position: relative;
+    z-index: 1;
+}
+
+.faq-toggle[aria-expanded="true"] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+    background: #80A887;
+}
+
+.faq-answer {
+    position: relative;
+    z-index: 2; /* Fica acima do botão */
+    max-height: 0;
+    text-align: justify;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s, padding 0.3s;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #2B4430;
+    border-top: none;
+    padding: 0 24px 0 24px; /* top right bottom left - sem padding em cima e embaixo */
+    margin-top: 0;
+    font-size: 16px;
+    color: #185924;
+    text-align: left;
+    width: 601px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.faq-answer.open {
+    /* Estado aberto */
+    max-height: 200px;
+    opacity: 1;
+    padding: 0 80px 18px 40px; /* top right bottom left - só padding embaixo e laterais */
+    
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background: #80A887;
+    color: #fff;
+    z-index: 2;
+}
+
+/* FAQ - Ainda com dúvidas */
+.faq-question {
+    width: 80%;
+    height: 100px;
+    background: #015C12;
+    border-radius: 5px;
+    margin: 42px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 63px;
+    box-sizing: border-box;
+    padding: 0 24px;
+}
+
+.faq-duvidas {
+    font-family: var(--fonte-principal);
+    font-size: var(--fonte-grande);
+    font-weight: var(--peso-semi-bold);
+    color: var(--cor-tipografia-clara);
+    line-height: 1.2;
+    white-space: pre-line;
+    margin-left: 20%;
+}
+
+.btn-duvidas {
+    width: 177px;
+    height: 38px;
+    background: linear-gradient(135deg, #FCFCFC, #F0F0F0);
+    color: var(--cor-tipografia-verde);
+    border: 2px solid var(--cor-verde-principal);
+    border-radius: 25px;
+    font-family: var(--fonte-secundaria);
+    font-size: var(--fonte-pequena);
+    font-weight: var(--peso-semi-bold);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--sombra-leve);
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    margin-left: 10%;
+}
+
+/* Efeito de brilho no botão */
+.btn-duvidas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-duvidas:hover::before {
+    left: 100%;
+}
+
+.btn-duvidas:hover {
+    background: linear-gradient(135deg, var(--cor-verde-principal), var(--cor-verde-secundario));
+    color: var(--cor-tipografia-clara);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--sombra-forte);
+    border-color: var(--cor-verde-secundario);
+}
+
+.btn-duvidas:active {
+    transform: translateY(-1px) scale(1.02);
+    transition: transform 0.1s;
+}
+
+/* --- ESTILOS FAQ --- */
+.faq {
+    width: 90%;
+    max-width: 1200px;
+    margin: var(--espacamento-extra-grande) auto;
+    padding: var(--espacamento-grande);
+}
+
+.faq-titulo {
+    text-align: center;
+    margin-bottom: var(--espacamento-grande);
+}
+
+.faq-titulo h1 {
+    font-family: var(--fonte-principal);
+    font-size: var(--fonte-titulo-grande);
+    font-weight: var(--peso-bold);
+    color: #36c04f;
+    margin: 0;
+    font-size: 60px;
+}
+
+.faq-titulo h2 {
+    font-family: var(--fonte-principal);
+    font-size: var(--fonte-titulo-medio);
+    font-weight: var(--peso-semi-bold);
+    color: var(--cor-verde-principal);
+    margin: 0;
+    font-size: 50px;
+}
+
+.faq-container {
+    margin-bottom: var(--espacamento-grande);
+}
+
+.faq-item {
+    margin-bottom: var(--espacamento-medio);
+}
+
+.faq-toggle {
+    width: 100%;
+    background: var(--cor-body-background);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: var(--espacamento-medio) var(--espacamento-grande);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-family: var(--fonte-principal);
+    font-size: var(--fonte-normal);
+    font-weight: var(--peso-semi-bold);
+    color: var(--cor-tipografia-geral);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de onda no FAQ */
+.faq-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(1, 93, 18, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.faq-toggle:hover::before {
+    left: 100%;
+}
+
+.faq-toggle:hover {
+    background: var(--cor-hover);
+    box-shadow: var(--sombra-media);
+    transform: translateY(-2px);
+}
+
+.faq-toggle[aria-expanded="true"] {
+    background: linear-gradient(135deg, var(--cor-verde-principal), var(--cor-verde-secundario));
+    color: var(--cor-tipografia-clara);
+    border-color: var(--cor-verde-principal);
+    transform: translateY(-1px);
+    box-shadow: var(--sombra-media);
+}
+
+.faq-title {
+    flex: 1;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.faq-icon {
+    font-size: var(--fonte-grande);
+    font-weight: var(--peso-bold);
+    margin-left: var(--espacamento-medio);
+    transition: transform 0.3s ease;
+}
+
+.faq-toggle[aria-expanded="true"] .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    background: var(--cor-fundo-cinza);
+    border: 1px solid var(--cor-borda);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: var(--espacamento-grande);
+    font-family: var(--fonte-secundaria);
+    font-size: var(--fonte-normal);
+    line-height: 1.6;
+    color: var(--cor-tipografia-geral);
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.faq-answer.open {
+    display: block;
+}
+
+/* ===============================
+   RESPONSIVIDADE - MEDIA QUERIES
+   =============================== */
+
+/* --- TABLET (768px e abaixo) --- */
+@media screen and (max-width: 768px) {
+  
+  /* MAIN GERAL */
+  main {
+    margin-top: 100px;
+  }
+  
+  /* INTRODUÇÃO DRG */
+  .introducao-DRG {
+    height: auto;
+    padding: var(--espacamento-grande) var(--espacamento-medio);
+  }
+  
+  .img-titulo {
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .caixa-texto {
+    width: 90%;
+    height: auto;
+    padding: var(--espacamento-grande) var(--espacamento-medio);
+    margin: var(--espacamento-medio) auto;
+  }
+  
+  .descricao-caixa {
+    white-space: normal;
+    padding-left: 0;
+  }
+  
+  .descricao-caixa span {
+    font-size: var(--fonte-media);
+    line-height: 1.4;
+  }
+  
+  #linha1, #linha2 {
+    font-size: var(--fonte-titulo-medio);
+    white-space: normal;
+    text-align: center;
+  }
+  
+  /* ENFEITES DECORATIVOS */
+  .enfeite-retangulos, .enfeite-retangulos2 {
+    display: none; /* Oculta enfeites em telas menores */
+  }
+  
+  /* PRINCIPAIS RESPONSABILIDADES */
+  .principais-responsabilidades {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: var(--espacamento-grande) var(--espacamento-medio);
+    margin: var(--espacamento-medio) 0 0 0;
+    box-sizing: border-box;
+  }
+  
+  .caixas-responsabilidades {
+    flex-direction: column;
+    gap: var(--espacamento-medio);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .caixa-responsabilidade {
+    width: 100% !important;
+    min-width: 0;
+    margin: 0 0 var(--espacamento-medio) 0 !important;
+    height: auto;
+    box-sizing: border-box;
+  }
+  
+  .principais-responsabilidades h2 {
+    font-size: var(--fonte-titulo-medio);
+    white-space: normal;
+    text-align: center;
+    margin-bottom: var(--espacamento-medio);
+  }
+  
+  .carousel-controls {
+    display: none;
+  }
+}
+
+/* --- MOBILE (480px e abaixo) --- */
+@media screen and (max-width: 480px) {
+  
+  /* MAIN GERAL */
+  main {
+    margin-top: 80px;
+  }
+  
+  /* INTRODUÇÃO DRG */
+  .introducao-DRG {
+    padding: var(--espacamento-medio);
+    margin-top: 50%;
+  }
+  
+  .img-titulo {
+    width: 95%;
+    max-width: 300px;
+  }
+  
+  .caixa-texto {
+    padding: var(--espacamento-medio);
+  }
+  
+  .descricao-caixa span {
+    font-size: var(--fonte-normal);
+  }
+  
+  #linha1, #linha2 {
+    font-size: var(--fonte-grande);
+  }
+  
+  /* PRINCIPAIS RESPONSABILIDADES */
+  .principais-responsabilidades {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: var(--espacamento-medio) 0;
+    margin: var(--espacamento-medio) 0 0 0;
+    box-sizing: border-box;
+  }
+  
+  .caixas-responsabilidades {
+    flex-direction: column;
+    gap: var(--espacamento-pequeno);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .caixa-responsabilidade {
+    width: 100% !important;
+    min-width: 0;
+    margin: 0 0 var(--espacamento-pequeno) 0 !important;
+    height: auto;
+    box-sizing: border-box;
+  }
+  
+  .principais-responsabilidades h2 {
+    font-size: var(--fonte-grande);
+    margin-bottom: var(--espacamento-pequeno);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .principais-responsabilidades {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: var(--espacamento-grande) var(--espacamento-medio);
+    margin: var(--espacamento-medio) 0 0 0;
+    box-sizing: border-box;
+  }
+  .caixas-responsabilidades {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}

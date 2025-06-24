@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <title>Diretorias | IFSP Birigui</title>
+
+  <style>
+    /* --- reset.css --- */
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+    article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+    body { line-height: 1; }
+    ol, ul { list-style: none; }
+    blockquote, q { quotes: none; }
+    blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+    table { border-collapse: collapse; border-spacing: 0; }
+    box-sizing: border-box;
+
+    /* --- Variáveis Globais (main.css) --- */
+    :root {
+      --cor-verde-principal: #015D12; --cor-verde-secundario: #329A45; --cor-verde-claro: #4FC417; --cor-verde-muito-claro: #82FB48; --cor-verde-suave: #80A887;
+      --cor-body-background: #FFFFFF; --cor-fundo-escuro: #001815; --cor-fundo-medio: #192F2C; --cor-fundo-claro: #D4DAD4; --cor-fundo-cinza: #F8F8F8;
+      --cor-tipografia-geral: #2B4430; --cor-tipografia-clara: #FFFFFF; --cor-tipografia-escura: #083410; --cor-tipografia-verde: #015C12; --cor-tipografia-verde-claro: #185924;
+      --fonte-principal: "Poppins", sans-serif; --fonte-secundaria: "Roboto", sans-serif; --fonte-terciaria: "Inter", sans-serif; --fonte-especial: "Josefin Sans", sans-serif; --fonte-display: "Press Start 2P", monospace;
+      --fonte-pequena: 14px; --fonte-normal: 16px; --fonte-media: 20px; --fonte-grande: 24px; --fonte-titulo-pequeno: 28px; --fonte-titulo-medio: 30px; --fonte-titulo-grande: 40px;
+      --peso-leve: 300; --peso-normal: 400; --peso-medio: 500; --peso-semi-bold: 600; --peso-bold: 700; --peso-extra-bold: 900;
+      --cor-hover: #e0e0e0; --cor-ativo: #185924; --cor-borda: #e0e0e0;
+      --sombra-leve: 0 2px 6px rgba(0, 0, 0, 0.15); --sombra-media: 0 4px 10px rgba(0, 0, 0, 0.2); --sombra-forte: 0 4px 16px rgba(12, 12, 12, 0.75);
+    }
+    
+    /* --- Lógica de Página Única --- */
+    .page-content {
+      display: none; /* Esconde todas as seções por padrão */
+    }
+    .page-content.active {
+      display: block; /* Mostra apenas a seção ativa */
+    }
+
+    /* --- header.css --- */
+    header { width: 100%; height: auto; min-height: 300px; background-color: var(--cor-body-background); padding-bottom: 20px; }
+    .faixa-verde { height: 195px; background: linear-gradient(90deg, rgba(1, 67, 13, 1) 0%, rgba(1, 93, 18, 1) 8%, rgba(1, 93, 18, 1) 88%, rgba(1, 67, 13, 1) 100%); }
+    .faixa-verde .conteudo-faixa { margin: 0; padding-left: 100px; height: 100%; display: flex; align-items: center; }
+    .navegacao-DRG-DRA-DAA { margin-top: 80px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .navegacao-DRG-DRA-DAA h1 { margin: 0; color: var(--cor-tipografia-geral); font-size: var(--fonte-titulo-medio); font-family: var(--fonte-principal); font-style: italic; text-align: center; font-weight: var(--peso-bold); margin-bottom: 40px; }
+    .botoes { border: none; background-color: var(--cor-body-background); box-shadow: var(--sombra-leve); border-radius: 5px; display: flex; font-size: var(--fonte-pequena); font-weight: var(--peso-bold); color: var(--cor-tipografia-geral); padding: 10px 20px; }
+    .botoes a { padding: 10px 40px; text-decoration: none; position: relative; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); border-radius: 5px; overflow: hidden; color: var(--cor-tipografia-geral); cursor: pointer;}
+    .botoes a:hover { background-color: var(--cor-hover); box-shadow: var(--sombra-media); transform: translateY(-2px); color: var(--cor-verde-principal); }
+    .botoes a.ativo { background: linear-gradient(135deg, var(--cor-verde-principal), var(--cor-verde-secundario)); color: var(--cor-tipografia-clara); box-shadow: var(--sombra-media); transform: translateY(-1px); }
+    .botoes a.ativo:hover { background: linear-gradient(135deg, var(--cor-verde-secundario), var(--cor-verde-principal)); transform: translateY(-3px); box-shadow: var(--sombra-forte); }
+
+    /* --- main.css --- */
+    main { margin-top: 200px; }
+    img { max-width: 100%; height: auto; }
+    .grid-template { width: 100%; overflow-x: hidden; }
+    .img-titulo { width: 550px; }
+    .introducao-DRG { width: 100%; min-height: 767px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .caixa-texto { width: 800px; min-height: 500px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); padding: 0 50px; display: flex; flex-direction: column; justify-content: center; text-align: left; }
+    .descricao-caixa span { font-family: var(--fonte-secundaria); font-weight: var(--peso-leve); font-size: var(--fonte-titulo-pequeno); }
+    #linha1, #linha2 { display: inline-block; font-family: var(--fonte-principal); font-weight: var(--peso-semi-bold); font-size: var(--fonte-titulo-grande); color: var(--cor-tipografia-geral); }
+    #destaque-drg { color: var(--cor-verde-principal); font-weight: var(--peso-extra-bold); }
+    .verde-texto { color: var(--cor-verde-secundario); font-weight: var(--peso-extra-bold); }
+    .descricao-caixa { white-space: nowrap; padding-left: 12px; margin-top: 30px; }
+    .enfeite-retangulos, .enfeite-retangulos2, .enfeite-quadrados-direita, .enfeite-quadrados-esquerda { display: none; } /* Ocultando enfeites complexos para simplificar */
+
+    /* Responsabilidades */
+    .principais-responsabilidades { background-color: var(--cor-body-background); width: 90%; max-width: 1200px; margin: 40px auto 0 auto; display: flex; flex-direction: column; align-items: center; padding: 20px; position: relative; }
+    .principais-responsabilidades h2 { margin-bottom: 2%; line-height: 1.2; font-family: var(--fonte-principal); font-size: var(--fonte-titulo-grande); font-weight: var(--peso-semi-bold); color: var(--cor-tipografia-geral); text-shadow: 0px 4px 4px rgba(0,0,0,0.25); }
+    .caixas-responsabilidades { display: flex; justify-content: center; align-items: stretch; width: 100%; margin: 3% 0; gap: 20px; flex-wrap: wrap; }
+    .caixa-responsabilidade { min-width: 223px; flex: 1; max-width: 250px; background: #fff; border-radius: 12px; border: 1.5px solid #e0e0e0; box-shadow: 0 12px 24px -6px rgba(0,0,0,0.22); transition: all 0.4s; cursor: pointer; overflow: hidden; }
+    .caixa-responsabilidade:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 40px -8px rgba(0,0,0,0.3); }
+    .caixa-conteudo { padding: 20px; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .caixa-icone { font-size: 48px; margin-bottom: 15px; }
+    .caixa-conteudo h3 { font-family: var(--fonte-principal); font-size: var(--fonte-normal); font-weight: var(--peso-semi-bold); color: var(--cor-tipografia-verde); margin-bottom: 10px; }
+    .caixa-conteudo p { font-family: var(--fonte-secundaria); font-size: var(--fonte-pequena); color: var(--cor-tipografia-geral); line-height: 1.4; }
+    .carrousel { display: none; } /* Carrossel manual não é mais necessário, flex-wrap resolve */
+    .carousel-controls { display: flex; gap: 10px; margin-top: 20px; }
+    .carousel-btn { background: linear-gradient(135deg, #344A47, #185924); color: #fff; border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 1.5rem; font-weight: 900; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s; }
+    .carousel-btn:hover:not(:disabled) { background: linear-gradient(135deg, #185924, #4FC417); transform: scale(1.1); }
+    .carousel-btn:disabled { opacity: 0.4; cursor: default; background: #ccc; }
+
+    /* Identificação Diretor */
+    .identificacao { width: 90%; max-width: 900px; min-height: 300px; background: #185924; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-around; margin: 40px auto 0 auto; border-radius: 10px; padding: 30px; gap: 20px; box-shadow: 0 4px 16px #0c0c0cc0; }
+    .identificacao-info { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .identificacao h2 { background: #82FB48; width: 100%; max-width: 445px; padding: 15px; color: #185924; font-family: var(--fonte-principal); font-size: 2rem; font-weight: 700; border-radius: 5px; margin-bottom: 10px; }
+    .identificacao h3 { background: #4FC417; width: auto; padding: 10px 20px; color: #fff; font-size: 1.3rem; font-weight: 600; border-radius: 10px; margin-bottom: 20px; }
+    .identificacao h4 { background: #39A108; padding: 8px 15px; color: #fff; font-size: 1.1rem; border-radius: 10px; font-weight: 400; }
+    .identificacao .botao-link { background: #4FC417; padding: 8px 15px; color: #fff; font-size: 1.1rem; border-radius: 10px; font-weight: 700; text-decoration: none; }
+    .linha-email, .linha-linkedin { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+    .icone-email, .icone-linkedin { width: 24px; height: 24px; filter: brightness(0) invert(1); }
+    .foto-diretor-container { position: relative; width: 200px; height: 200px; }
+    .foto-diretor-bola { width: 100%; height: 100%; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 5px solid #4FC417; }
+    .foto-diretor { width: 100%; height: 100%; object-fit: cover; }
+    .bola-decorativa1, .bola-decorativa2 { display: none; }
+
+    /* FAQ */
+    .faq { display: flex; flex-direction: column; align-items: center; width: 90%; max-width: 800px; margin: 80px auto; }
+    .faq-titulo { text-align: center; margin-bottom: 40px; }
+    .faq-titulo h2 { color: #083410; font-family: var(--fonte-principal); font-weight: 800; font-size: 48px; }
+    .faq-titulo h1 { color: #4FC417; font-family: var(--fonte-principal); font-weight: 800; font-size: 64px; margin-top: -10px; }
+    .faq-container { width: 100%; }
+    .faq-item { margin-bottom: 10px; }
+    .faq-toggle { font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: 700; color: #185924; background: #fff; width: 100%; min-height: 66px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #2B4430; border-radius: 5px; cursor: pointer; transition: background 0.2s; padding: 15px 24px; text-align: left; }
+    .faq-toggle .faq-icon { font-size: 24px; font-weight: bold; }
+    .faq-toggle[aria-expanded="true"] { background: var(--cor-verde-suave); color: white; }
+    .faq-answer { background: #f7f7f7; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; max-height: 0; padding: 0 24px; border: 1px solid #2B4430; border-top: none; border-radius: 0 0 5px 5px; }
+    .faq-answer.open { padding: 20px 24px; }
+    .faq-question { width: 100%; max-width: 435px; background: #015C12; border-radius: 5px; margin-top: 42px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; padding: 20px; text-align: center; }
+    .faq-duvidas { font-family: var(--fonte-principal); font-size: var(--fonte-grande); font-weight: var(--peso-semi-bold); color: var(--cor-tipografia-clara); line-height: 1.2; }
+    .btn-duvidas { width: 177px; height: 38px; background: #fff; color: var(--cor-tipografia-verde); border: 2px solid var(--cor-verde-principal); border-radius: 25px; font-family: var(--fonte-secundaria); font-weight: var(--peso-semi-bold); cursor: pointer; transition: all 0.3s; }
+    .btn-duvidas:hover { background: var(--cor-verde-principal); color: white; }
+
+    /* --- titulos-dinamicos.css --- */
+    .titulo-dinamico-wrapper { width: 100%; display: flex; justify-content: center; align-items: center; min-height: 150px; margin: 40px 0; }
+    .title-container { position: relative; z-index: 1; }
+    .title-container::before, .title-container::after { content: ''; position: absolute; left: 50%; transform: translateX(-50%); background-color: rgba(147, 177, 147, 0.6); z-index: -1; border-radius: 0.375rem; }
+    .title-container::before { width: 105%; height: 55%; top: -5%; }
+    .title-container::after { width: 110%; height: 55%; bottom: -5%; }
+    .texto-titulo-ifsp { font-family: 'Inter', sans-serif; font-weight: 900; color: #2F4F2F; text-align: center; text-transform: uppercase; letter-spacing: 0.025em; line-height: 1.1; margin: 0; text-shadow: 1px 1px 3px rgba(40, 40, 40, 0.4); font-size: 3rem; }
+    @media (min-width: 768px) { .texto-titulo-ifsp { font-size: 3.75rem; } }
+    @media (min-width: 1024px) { .texto-titulo-ifsp { font-size: 4.5rem; } }
+    
+    /* --- rodape.css --- */
+    .rodape { margin-top: 50px; }
+    .rodape__lista { background-color: var(--cor-fundo-escuro); display: flex; flex-wrap: wrap; padding: 100px 50px; justify-content: space-around; gap: 40px; }
+    .rodape__lista-item { margin-bottom: 20px; font-family: var(--fonte-secundaria); font-size: var(--fonte-normal); font-weight: 200; color: var(--cor-tipografia-clara); }
+    .rodape__lista-item img { width: 250px; height: auto; }
+    .rodape__titulo { font-size: var(--fonte-titulo-medio); font-family: var(--fonte-principal); font-weight: var(--peso-bold); color: var(--cor-verde-suave); text-transform: uppercase; }
+    .rodape__informacao { height: auto; background: var(--cor-fundo-medio); display: flex; flex-wrap: wrap; padding: 28px; justify-content: space-around; align-items: center; }
+    .rodape__informacao .imge { width: 150px; height: auto; }
+    .rodape__endereco { background: var(--cor-fundo-claro); font-family: var(--fonte-secundaria); font-size: var(--fonte-normal); font-weight: var(--peso-normal); padding: 26px; text-align: center; }
+
+    /* --- Responsividade Geral --- */
+    @media (max-width: 768px) {
+        main { margin-top: 100px; }
+        .navegacao-DRG-DRA-DAA { margin-top: 40px; }
+        .navegacao-DRG-DRA-DAA h1 { font-size: var(--fonte-grande); }
+        .botoes { flex-direction: column; width: 90%; max-width: 300px; gap: 5px; padding: 5px; }
+        .botoes a { width: 100%; text-align: center; }
+        .caixa-texto { width: 90%; }
+        .descricao-caixa { white-space: normal; }
+        .descricao-caixa span { font-size: var(--fonte-media); }
+        .identificacao { flex-direction: column-reverse; }
+        .faixa-verde .conteudo-faixa { justify-content: center; padding-left: 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+      <div class="faixa-verde">
+          <div class="conteudo-faixa">
+              <img src="https://bri.ifsp.edu.br/images/exemplo_emblemas/logo_ifsp.bri_white.fw.png" alt="IFSP">
+          </div>
+      </div>
+      <div class="navegacao-DRG-DRA-DAA">
+          <h1>CONHEÇA AS DIRETORIAS QUE FAZEM O CAMPUS<br>FUNCIONAR</h1>
+          <div class="botoes">
+              <!-- Links agora controlados por JS, com data-target -->
+              <a href="#" data-target="page-drg" class="ativo">CONHECER DRG</a>
+              <a href="#" data-target="page-dae">CONHECER DAE</a>
+              <a href="#" data-target="page-daa">CONHECER DAA</a>
+          </div>
+      </div>
+  </header>
+
+  <main>
+    <!-- ======================================================= -->
+    <!-- PÁGINA DRG (DIREÇÃO GERAL) -->
+    <!-- ======================================================= -->
+    <div id="page-drg" class="page-content active">
+        <section class="diretoria-DRG">
+            <div class="introducao-DRG">
+                <img src="./assets/img/titulo01.png" alt="titulo" class="img-titulo">
+                <div class="caixa-texto">
+                    <div class="titulo-caixa">
+                        <span id="linha1">O QUE É</span><br>
+                        <span id="linha2">A <span id="destaque-drg">DRG</span></span>
+                    </div>
+                    <div class="descricao-caixa">
+                        <span>A <span class="verde-texto">Direção Geral</span> é o órgão máximo de gestão</span><br>
+                        <span>do campus, responsável por coordenar as atividades</span><br>
+                        <span>acadêmicas e administrativas.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="principais-responsabilidades">
+                <h2>PRINCIPAIS RESPONSABILIDADES</h2>
+                <div class="caixas-responsabilidades">
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">🏛️</div><h3>Gestão Institucional</h3><p>Coordenação geral das atividades do campus e representação institucional.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">📋</div><h3>Planejamento Estratégico</h3><p>Elaboração e acompanhamento de planos de desenvolvimento institucional.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">⚖️</div><h3>Decisões Administrativas</h3><p>Autorização de despesas e tomada de decisões estratégicas do campus.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">🤝</div><h3>Relações Externas</h3><p>Representação do campus em eventos e parcerias com outras instituições.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">👥</div><h3>Liderança de Equipes</h3><p>Coordenação das diretorias e setores administrativos do campus.</p></div></div>
+                </div>
+            </div>
+
+            <div class="identificacao">
+                <div class="identificacao-info">
+                    <h2>Adriano de Souza Marques</h2>
+                    <h3>Diretor Geral Atual</h3>
+                    <div class="linha-email"><img src="https://static.thenounproject.com/png/1577028-200.png" alt="ícone email" class="icone-email"><h4>drg.bri@ifsp.edu.br</h4></div>
+                    <div class="linha-linkedin"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/72px-LinkedIn_icon.svg.png" alt="ícone linkedin" class="icone-linkedin"><a href="https://www.linkedin.com/in/adrianosouzam/" class="botao-link" target="_blank">Perfil LinkedIn</a></div>
+                </div>
+                <div class="foto-diretor-container">
+                    <div class="foto-diretor-bola"><img class="foto-diretor" src="https://media.licdn.com/dms/image/D4D03AQHuGsUnqm-8iQ/profile-displayphoto-shrink_800_800/0/1715082404090?e=1723075200&v=beta&t=M8-9g-W8M7j94Gv_kQJ-4nBfXz8lXq6S3Kz4Y7R8b1A" alt="Foto do Diretor Adriano de Souza Marques"></div>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq-titulo"><h2>Perguntas</h2><h1>Frequentes</h1></div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-toggle" aria-expanded="false"><span class="faq-title">Qual é a função principal da Direção Geral (DRG)?</span><span class="faq-icon">+</span></button>
+                        <div class="faq-answer">A DRG é o órgão executivo máximo do campus, responsável por planejar, superintender, coordenar e fiscalizar todas as atividades acadêmicas e administrativas.</div>
+                        <button class="faq-toggle" aria-expanded="false"><span class="faq-title">A DRG atende diretamente os alunos?</span><span class="faq-icon">+</span></button>
+                        <div class="faq-answer">Geralmente, as demandas dos alunos são tratadas pelas diretorias específicas, como a DAA (assuntos acadêmicos) e a DAE (assuntos administrativos). A DRG atua em questões mais amplas e estratégicas, mas está sempre de portas abertas.</div>
+                        <button class="faq-toggle" aria-expanded="false"><span class="faq-title">Quais decisões a DRG pode tomar?</span><span class="faq-icon">+</span></button>
+                        <div class="faq-answer">A DRG pode autorizar despesas, presidir conselhos, representar o campus externamente e tomar decisões relacionadas à gestão e ao planejamento institucional.</div>
+                    </div>
+                </div>
+                <div class="faq-question"><span class="faq-duvidas">Ainda com<br> dúvidas?</span><button class="btn-duvidas">Converse com a gente</button></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ======================================================= -->
+    <!-- PÁGINA DAE (ADMINISTRAÇÃO E PLANEJAMENTO) -->
+    <!-- ======================================================= -->
+    <div id="page-dae" class="page-content">
+       <section class="diretoria-DAE">
+            <div class="introducao-DRG">
+                <img src="https://via.placeholder.com/550x100/015D12/FFFFFF?text=DIRETORIA+DE+ADMINISTRAÇÃO+E+PLANEJAMENTO" alt="Diretoria de Administração e Planejamento" class="img-titulo">
+                <div class="caixa-texto">
+                    <div class="titulo-caixa"><span id="linha1">O QUE É</span><br><span id="linha2">A <span id="destaque-drg">DAE</span></span></div>
+                    <div class="descricao-caixa">
+                        <span>A <span class="verde-texto">Diretoria de Administração e Planejamento</span></span> <br>
+                        <span>é responsável pela gestão administrativa,</span><br>
+                        <span>financeira e de recursos humanos do campus,</span><br>
+                        <span>garantindo o funcionamento eficiente.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="principais-responsabilidades">
+                <h2>PRINCIPAIS RESPONSABILIDADES</h2>
+                <div class="caixas-responsabilidades">
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">💼</div><h3>Gestão de Recursos Humanos</h3><p>Coordenação de processos de contratação, capacitação e desenvolvimento de servidores.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">💰</div><h3>Gestão Financeira</h3><p>Controle orçamentário, execução financeira e prestação de contas dos recursos públicos.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">📋</div><h3>Planejamento Estratégico</h3><p>Elaboração e acompanhamento de planos institucionais e metas administrativas.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">🏢</div><h3>Infraestrutura</h3><p>Manutenção predial, obras, reformas e gestão do patrimônio institucional.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">📊</div><h3>Contratos e Licitações</h3><p>Gestão de processos licitatórios, contratos e aquisições para o campus.</p></div></div>
+                </div>
+            </div>
+
+            <div class="identificacao">
+                <div class="identificacao-info">
+                    <h2>Nome do Diretor DAE</h2>
+                    <h3>Diretor de Administração e Planejamento</h3>
+                    <div class="linha-email"><img src="https://static.thenounproject.com/png/1577028-200.png" alt="ícone email" class="icone-email"><h4>dae.bri@ifsp.edu.br</h4></div>
+                    <div class="linha-linkedin"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/72px-LinkedIn_icon.svg.png" alt="ícone linkedin" class="icone-linkedin"><a href="#" class="botao-link">Perfil LinkedIn</a></div>
+                </div>
+                <div class="foto-diretor-container">
+                    <div class="foto-diretor-bola"><img class="foto-diretor" src="https://via.placeholder.com/200x200/015D12/FFFFFF?text=DAE"></div>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq-titulo"><h2>Perguntas</h2><h1>Frequentes</h1></div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-toggle" aria-expanded="false"><span class="faq-title">Qual é a função principal da DAE?</span><span class="faq-icon">+</span></button>
+                        <div class="faq-answer">A DAE é responsável pela gestão administrativa, financeira e de recursos humanos do campus, garantindo o funcionamento eficiente de todos os setores administrativos.</div>
+                        <button class="faq-toggle" aria-expanded="false"><span class="faq-title">A DAE cuida da manutenção do campus?</span><span class="faq-icon">+</span></button>
+                        <div class="faq-answer">Sim, a DAE é responsável pela manutenção predial, obras, reformas e gestão do patrimônio institucional.</div>
+                        <button class="faq-toggle" aria-expanded="false"><span class="faq-title">Como funciona o processo de licitações?</span><span class="faq-icon">+</span></button>
+                        <div class="faq-answer">A DAE gerencia todos os processos licitatórios seguindo a legislação vigente, garantindo transparência e economicidade nas aquisições.</div>
+                    </div>
+                </div>
+                <div class="faq-question"><span class="faq-duvidas">Ainda com<br> dúvidas?</span><button class="btn-duvidas">Converse com a gente</button></div>
+            </div>
+       </section>
+    </div>
+
+    <!-- ======================================================= -->
+    <!-- PÁGINA DAA (ASSUNTOS ACADÊMICOS) -->
+    <!-- ======================================================= -->
+    <div id="page-daa" class="page-content">
+      <section class="diretoria-DAA">
+            <div class="introducao-DRG">
+                <img src="https://via.placeholder.com/550x100/015D12/FFFFFF?text=DIRETORIA+DE+ASSUNTOS+ACADÊMICOS" alt="Diretoria de Assuntos Acadêmicos" class="img-titulo">
+                <div class="caixa-texto">
+                    <div class="titulo-caixa"><span id="linha1">O QUE É</span><br><span id="linha2">A <span id="destaque-drg">DAA</span></span></div>
+                    <div class="descricao-caixa">
+                        <span>A <span class="verde-texto">Diretoria de Assuntos Acadêmicos</span></span> <br>
+                        <span>é responsável pela coordenação das</span><br>
+                        <span>atividades de ensino, pesquisa e extensão.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="principais-responsabilidades">
+                <h2>PRINCIPAIS RESPONSABILIDADES</h2>
+                <div class="caixas-responsabilidades">
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">📚</div><h3>Coordenação de Ensino</h3><p>Supervisão dos cursos técnicos, superiores e de pós-graduação.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">🔬</div><h3>Pesquisa e Inovação</h3><p>Fomento e coordenação de projetos de pesquisa científica e tecnológica.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">🤝</div><h3>Extensão Universitária</h3><p>Desenvolvimento de projetos que conectam o campus com a comunidade externa.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">👨‍🎓</div><h3>Apoio ao Estudante</h3><p>Programas de assistência estudantil, bolsas e acompanhamento acadêmico.</p></div></div>
+                    <div class="caixa-responsabilidade"><div class="caixa-conteudo"><div class="caixa-icone">📋</div><h3>Registros Acadêmicos</h3><p>Gestão de matrículas, históricos, diplomas e documentação acadêmica.</p></div></div>
+                </div>
+            </div>
+
+            <div class="identificacao">
+                <div class="identificacao-info">
+                    <h2>Nome do Diretor DAA</h2>
+                    <h3>Diretor de Assuntos Acadêmicos</h3>
+                    <div class="linha-email"><img src="https://static.thenounproject.com/png/1577028-200.png" alt="ícone email" class="icone-email"><h4>daa.bri@ifsp.edu.br</h4></div>
+                    <div class="linha-linkedin"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/72px-LinkedIn_icon.svg.png" alt="ícone linkedin" class="icone-linkedin"><a href="#" class="botao-link">Perfil LinkedIn</a></div>
+                </div>
+                <div class="foto-diretor-container">
+                    <div class="foto-diretor-bola"><img class="foto-diretor" src="https://via.placeholder.com/200x200/015D12/FFFFFF?text=DAA"></div>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq-titulo"><h2>Perguntas</h2><h1>Frequentes</h1></div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-toggle" aria-expanded="false"><span class="faq-title">Qual é a função principal da DAA?</span><span class="faq-icon">+</span></button>
+                        <div class="faq-answer">A DAA coordena todas as atividades acadêmicas do campus, incluindo ensino, pesquisa e extensão, garantindo a qualidade educacional.</div>
+                        <button class="faq-toggle" aria-expanded="false"><span class="faq-title">Como posso solicitar documentos acadêmicos?</span><span class="faq-icon">+</span></button>
+                        <div class="faq-answer">Documentos acadêmicos podem ser solicitados através do setor de registros acadêmicos ou pelo sistema online do campus.</div>
+                        <button class="faq-toggle" aria-expanded="false"><span class="faq-title">Como participar de projetos de pesquisa?</span><span class="faq-icon">+</span></button>
+                        <div class="faq-answer">Estudantes podem participar de projetos de pesquisa através de editais de iniciação científica ou contato direto com professores pesquisadores.</div>
+                    </div>
+                </div>
+                <div class="faq-question"><span class="faq-duvidas">Ainda com<br> dúvidas?</span><button class="btn-duvidas">Converse com a gente</button></div>
+            </div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape__lista">
+        <ul class="rodape__lista-itens mec">
+            <li class="rodape__lista-item"><h3 class="rodape__titulo">Consulte aqui o cadastro <br> do IFSP no e-MAC</h3></li>
+            <li class="rodape__lista-item"><img src="https://bri.ifsp.edu.br/images/e-mec.png" alt="Logo e-MEC"></li>
+        </ul>
+        <ul class="rodape__lista-itens">
+            <li class="rodape__lista-item"><h3 class="rodape__titulo">Institucional</h3></li>
+            <li class="rodape__lista-item">Histórico</li>
+            <li class="rodape__lista-item">Documentos</li>
+            <li class="rodape__lista-item">Horário de Atendimento</li>
+            <li class="rodape__lista-item">Docentes</li>
+            <li class="rodape__lista-item">Técnicos Administrativos</li>
+        </ul>
+        <ul class="rodape__lista-itens">
+            <li class="rodape__lista-item"><h3 class="rodape__titulo">Cursos</h3></li>
+            <li class="rodape__lista-item">Superiores</li>
+            <li class="rodape__lista-item">Pós-Graduação</li>
+            <li class="rodape__lista-item">Técnicos</li>
+        </ul>
+        <ul class="rodape__lista-itens">
+            <li class="rodape__lista-item"><h3 class="rodape__titulo"> Serviços</h3></li>
+            <li class="rodape__lista-item">Contato</li>
+            <li class="rodape__lista-item">Acesso à informação</li>
+            <li class="rodape__lista-item">Ouvidoria</li>
+        </ul>
+    </div>
+    <div class="rodape__informacao">
+        <img src="https://www.ifsp.edu.br/images/MARCAS/acesso_a_informacao.png" alt="Acesso a informação" class="imge">
+        <img src="https://www.ifsp.edu.br/images/MARCAS/govbr-ifsp.png" alt="Logo Governo Federal" class="imge">
+    </div>
+    <div class="rodape__endereco">
+        <h3 class="rodape__endereco-texto">INSTITUTO FEDERAL DE EDUCAÇÃO CIÊNCIA E TECNOLOGIA DE SÃO PAULO - CÂMPUS BIRIGUI - Rua Pedro Cavalo, Nº 709 - Residencial Portal da Pérola II - Birigui-SP - CEP:16201-407 - Fone:(18)3643-1160</h3>
+    </div>
+  </footer>
+
+  <script>
+    // =================================================================
+    // SCRIPT ÚNICO E CONSOLIDADO - DIRETORIAS IFSP
+    // =================================================================
+    class DiretoriasApp {
+        constructor() {
+            document.addEventListener('DOMContentLoaded', () => this.init());
+        }
+
+        init() {
+            this.setupNavigation();
+            this.setupDynamicTitles();
+            this.setupCarousels();
+            this.setupFAQs();
+        }
+
+        // Configura a navegação para alternar entre as seções (páginas)
+        setupNavigation() {
+            const navContainer = document.querySelector('.botoes');
+            const navLinks = document.querySelectorAll('.botoes a');
+            const pages = document.querySelectorAll('.page-content');
+
+            navContainer.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetLink = e.target.closest('a');
+                if (!targetLink) return;
+
+                const targetId = targetLink.dataset.target;
+                if (!targetId) return;
+                
+                // Atualiza a classe ativa nos botões
+                navLinks.forEach(link => link.classList.remove('ativo'));
+                targetLink.classList.add('ativo');
+
+                // Mostra a página correta e esconde as outras
+                pages.forEach(page => {
+                    if (page.id === targetId) {
+                        page.classList.add('active');
+                    } else {
+                        page.classList.remove('active');
+                    }
+                });
+                window.scrollTo(0, 0); // Rola a página para o topo
+            });
+        }
+
+        // Substitui as imagens de título por títulos dinâmicos em CSS
+        setupDynamicTitles() {
+            const diretoriasInfo = {
+                'page-drg': { titulo: "Direção Geral", classe: "titulo-drg" },
+                'page-dae': { titulo: "Diretoria de<br>Administração e<br>Planejamento", classe: "titulo-dae" },
+                'page-daa': { titulo: "Diretoria de<br>Assuntos<br>Acadêmicos", classe: "titulo-daa" }
+            };
+
+            document.querySelectorAll('.img-titulo').forEach(img => {
+                const parentSectionId = img.closest('.page-content').id;
+                const info = diretoriasInfo[parentSectionId];
+                if (info && img.parentElement) {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'titulo-dinamico-wrapper';
+                    const container = document.createElement('div');
+                    container.className = `title-container ${info.classe}`;
+                    const titulo = document.createElement('h1');
+                    titulo.className = 'texto-titulo-ifsp text-custom-shadow';
+                    titulo.innerHTML = info.titulo;
+                    container.appendChild(titulo);
+                    wrapper.appendChild(container);
+                    img.parentElement.replaceWith(wrapper);
+                }
+            });
+        }
+        
+        // Inicializa todos os carrosséis da página
+        setupCarousels() {
+             document.querySelectorAll('.principais-responsabilidades').forEach(container => {
+                const items = container.querySelectorAll('.caixa-responsabilidade');
+                const getVisibleCount = () => window.innerWidth > 768 ? 3 : 1;
+                
+                // Só inicializa o carrossel se houver mais itens do que o visível
+                if (items.length > getVisibleCount()) {
+                    new Carousel(container);
+                }
+            });
+        }
+
+        // Configura a funcionalidade de acordeão para todos os FAQs
+        setupFAQs() {
+            document.querySelectorAll('.faq-container').forEach(faqContainer => {
+                faqContainer.addEventListener('click', (e) => {
+                    const toggleButton = e.target.closest('.faq-toggle');
+                    if (!toggleButton) return;
+
+                    const answer = toggleButton.nextElementSibling;
+                    const icon = toggleButton.querySelector('.faq-icon');
+                    const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+
+                    if (isExpanded) {
+                        toggleButton.setAttribute('aria-expanded', 'false');
+                        answer.classList.remove('open');
+                        answer.style.maxHeight = null;
+                        if(icon) icon.textContent = '+';
+                    } else {
+                        toggleButton.setAttribute('aria-expanded', 'true');
+                        answer.classList.add('open');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        if(icon) icon.textContent = '−';
+                    }
+                });
+            });
+        }
+    }
+
+    class Carousel {
+        constructor(containerElement) {
+            this.container = containerElement;
+            this.carouselWrapper = this.container.querySelector('.caixas-responsabilidades');
+            this.items = Array.from(this.carouselWrapper.children);
+            this.currentIndex = 0;
+            
+            this.initDOM();
+            this.addEventListeners();
+            this.updateCarousel();
+        }
+        
+        getVisibleCount() { return window.innerWidth > 768 ? 3 : 1; }
+        
+        initDOM() {
+            this.prevBtn = document.createElement('button');
+            this.prevBtn.innerHTML = '❮';
+            this.prevBtn.className = 'carousel-btn carousel-prev';
+
+            this.nextBtn = document.createElement('button');
+            this.nextBtn.innerHTML = '❯';
+            this.nextBtn.className = 'carousel-btn carousel-next';
+            
+            const controls = document.createElement('div');
+            controls.className = 'carousel-controls';
+            controls.append(this.prevBtn, this.nextBtn);
+            this.container.appendChild(controls);
+
+            this.carouselWrapper.style.transition = 'transform 0.5s ease-in-out';
+            this.carouselWrapper.style.display = 'flex'; // Forçar flex para o transform funcionar
+            this.carouselWrapper.style.flexWrap = 'nowrap'; // Evitar quebra de linha
+        }
+        
+        addEventListeners() {
+            this.prevBtn.addEventListener('click', () => {
+                if (this.currentIndex > 0) {
+                    this.currentIndex--;
+                    this.updateCarousel();
+                }
+            });
+            this.nextBtn.addEventListener('click', () => {
+                if (this.currentIndex < this.items.length - this.getVisibleCount()) {
+                    this.currentIndex++;
+                    this.updateCarousel();
+                }
+            });
+            window.addEventListener('resize', () => this.updateCarousel());
+        }
+        
+        updateCarousel() {
+            const visibleCount = this.getVisibleCount();
+            const controls = this.container.querySelector('.carousel-controls');
+
+            if (window.innerWidth <= 768 || this.items.length <= visibleCount) {
+                if(controls) controls.style.display = 'none';
+                this.carouselWrapper.style.transform = 'translateX(0)';
+                this.carouselWrapper.style.flexWrap = 'wrap'; // Permitir quebra de linha em telas pequenas
+                this.carouselWrapper.style.justifyContent = 'center';
+                return;
+            }
+            
+            if(controls) controls.style.display = 'flex';
+            this.carouselWrapper.style.flexWrap = 'nowrap';
+            
+            const firstItem = this.items[0];
+            const itemStyle = window.getComputedStyle(firstItem);
+            const itemWidth = firstItem.offsetWidth + parseInt(itemStyle.marginLeft) + parseInt(itemStyle.marginRight);
+
+            const offset = -this.currentIndex * itemWidth;
+            this.carouselWrapper.style.transform = `translateX(${offset}px)`;
+            
+            this.prevBtn.disabled = this.currentIndex === 0;
+            this.nextBtn.disabled = this.currentIndex >= this.items.length - visibleCount;
+        }
+    }
+
+    // Inicia a aplicação
+    new DiretoriasApp();
+
+  </script>
+
+</body>
+</html>

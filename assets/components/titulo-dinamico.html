@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Títulos Dinâmicos - IFSP Diretorias</title>
+    <!-- Tailwind CSS para estilos responsivos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fontes do projeto IFSP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variáveis CSS do projeto IFSP */
+        :root {
+            --cor-verde-principal: #015D12;
+            --cor-verde-secundario: #329A45;
+            --cor-verde-claro: #4FC417;
+            --cor-verde-muito-claro: #82FB48;
+            --cor-verde-suave: #80A887;
+            --cor-tipografia-geral: #2B4430;
+            --fonte-principal: "Poppins", Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            font-family: var(--fonte-principal);
+        }
+
+        /* Container principal para títulos com efeito de barras */
+        .titulo-ifsp-container {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            padding: 20px 40px;
+        }
+
+        /* Barras de fundo com cores do IFSP */
+        .titulo-ifsp-container::before,
+        .titulo-ifsp-container::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 8px;
+            z-index: -1;
+        }
+
+        /* Barra superior - verde claro */
+        .titulo-ifsp-container::before {
+            width: 105%;
+            height: 55%;
+            top: -3%;
+            background: linear-gradient(135deg, var(--cor-verde-claro), var(--cor-verde-muito-claro));
+            opacity: 0.8;
+        }
+
+        /* Barra inferior - verde suave */
+        .titulo-ifsp-container::after {
+            width: 110%;
+            height: 55%;
+            bottom: -3%;
+            background: linear-gradient(135deg, var(--cor-verde-suave), var(--cor-verde-claro));
+            opacity: 0.6;
+        }
+
+        /* Texto principal com sombra IFSP */
+        .texto-titulo-ifsp {
+            color: var(--cor-tipografia-geral);
+            text-shadow: 2px 2px 4px rgba(1, 93, 18, 0.3);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+        }
+
+        /* Variações para cada diretoria */
+        .titulo-drg::before { background: linear-gradient(135deg, #4FC417, #82FB48); }
+        .titulo-drg::after { background: linear-gradient(135deg, #80A887, #4FC417); }
+
+        .titulo-dae::before { background: linear-gradient(135deg, #329A45, #4FC417); }
+        .titulo-dae::after { background: linear-gradient(135deg, #015D12, #329A45); }
+
+        .titulo-daa::before { background: linear-gradient(135deg, #82FB48, #4FC417); }
+        .titulo-daa::after { background: linear-gradient(135deg, #329A45, #80A887); }
+
+        /* Animações de entrada */
+        .titulo-animado {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            animation: tituloEntrada 1s ease-out forwards;
+        }
+
+        @keyframes tituloEntrada {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .titulo-ifsp-container {
+                padding: 15px 25px;
+            }
+            
+            .titulo-ifsp-container::before,
+            .titulo-ifsp-container::after {
+                border-radius: 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-ifsp-container {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen p-8">
+    
+    <div class="max-w-6xl mx-auto space-y-16">
+        
+        <!-- Título da página -->
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Títulos das Diretorias IFSP</h1>
+            <p class="text-gray-600">Versões dinâmicas dos títulos para cada diretoria</p>
+        </div>
+
+        <!-- DRG - Direção Geral -->
+        <section class="text-center">
+            <h2 class="text-xl font-semibold text-gray-700 mb-6">DRG - Direção Geral</h2>
+            <div class="title-container titulo-drg titulo-animado">
+                <h1 class="texto-titulo-ifsp text-custom-shadow">
+                    Direção Geral
+                </h1>
+            </div>
+        </section>
+
+        <!-- DAE - Diretoria de Administração e Planejamento -->
+        <section class="text-center">
+            <h2 class="text-xl font-semibold text-gray-700 mb-6">DAE - Diretoria de Administração e Planejamento</h2>
+            <div class="title-container titulo-dae titulo-animado" style="animation-delay: 0.2s;">
+                <h1 class="texto-titulo-ifsp text-custom-shadow">
+                    Diretoria de<br>Administração e<br>Planejamento
+                </h1>
+            </div>
+        </section>
+
+        <!-- DAA - Diretoria de Assuntos Acadêmicos -->
+        <section class="text-center">
+            <h2 class="text-xl font-semibold text-gray-700 mb-6">DAA - Diretoria de Assuntos Acadêmicos</h2>
+            <div class="title-container titulo-daa titulo-animado" style="animation-delay: 0.4s;">
+                <h1 class="texto-titulo-ifsp text-custom-shadow">
+                    Diretoria de<br>Assuntos<br>Acadêmicos
+                </h1>
+            </div>
+        </section>
+
+        <!-- Versão compacta para mobile -->
+        <section class="text-center mt-16">
+            <h2 class="text-xl font-semibold text-gray-700 mb-6">Versões Compactas (Mobile)</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- DRG Compacto -->
+                <div class="title-container titulo-drg titulo-animado" style="animation-delay: 0.6s;">
+                    <h3 class="texto-titulo-ifsp text-custom-shadow" style="font-size: 2rem;">
+                        DRG
+                    </h3>
+                </div>
+
+                <!-- DAE Compacto -->
+                <div class="title-container titulo-dae titulo-animado" style="animation-delay: 0.7s;">
+                    <h3 class="texto-titulo-ifsp text-custom-shadow" style="font-size: 2rem;">
+                        DAE
+                    </h3>
+                </div>
+
+                <!-- DAA Compacto -->
+                <div class="title-container titulo-daa titulo-animado" style="animation-delay: 0.8s;">
+                    <h3 class="texto-titulo-ifsp text-custom-shadow" style="font-size: 2rem;">
+                        DAA
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Código de exemplo -->
+        <section class="bg-white rounded-lg p-6 shadow-lg mt-16">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Como usar no projeto:</h2>
+            <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto"><code>&lt;div class="title-container titulo-drg"&gt;
+    &lt;h1 class="texto-titulo-ifsp text-custom-shadow"&gt;
+        Direção Geral
+    &lt;/h1&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+    </div>
+
+    <script>
+        // Animação sequencial dos títulos
+        document.addEventListener('DOMContentLoaded', function() {
+            const titulos = document.querySelectorAll('.titulo-animado');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            });
+
+            titulos.forEach(titulo => {
+                observer.observe(titulo);
+            });
+        });
+    </script>
+
+</body>
+</html>
